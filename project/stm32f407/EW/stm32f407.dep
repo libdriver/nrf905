@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <fileVersion>5</fileVersion>
+    <fileChecksum>231509937</fileChecksum>
+    <configuration>
+        <name>Release</name>
+        <outputs>
+            <file>$PROJ_DIR$\..\interface\src\gpio.c</file>
+            <file>$PROJ_DIR$\..\interface\src\uart.c</file>
+            <file>$PROJ_DIR$\..\interface\src\delay.c</file>
+            <file>$PROJ_DIR$\..\interface\src\clock.c</file>
+            <file>$PROJ_DIR$\..\interface\src\spi.c</file>
+            <file>$PROJ_DIR$\..\..\..\example\driver_nrf905_basic.c</file>
+            <file>$PROJ_DIR$\..\..\..\test\driver_nrf905_register_test.c</file>
+            <file>$PROJ_DIR$\..\interface\src\wire.c</file>
+            <file>$PROJ_DIR$\..\driver\src\stm32f407_driver_nrf905_interface.c</file>
+            <file>$PROJ_DIR$\..\..\..\src\driver_nrf905.c</file>
+            <file>$PROJ_DIR$\..\..\..\test\driver_nrf905_sent_receive_test.c</file>
+        </outputs>
+        <forcedrebuild>
+            <name>[REBUILD_ALL]</name>
+        </forcedrebuild>
+    </configuration>
+</project>
