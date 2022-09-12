@@ -51,6 +51,8 @@ LibDriver NRF905는 LibDriver에서 출시한 NRF905의 전체 기능 드라이�
 #### example basic sent
 
 ```C
+#include "driver_nrf905_basic.h"
+
 uint8_t (*g_gpio_irq)(void) = NULL;
 uint8_t res;
 uint8_t addr[4] = NRF905_BASIC_DEFAULT_RX_ADDR;
@@ -140,6 +142,8 @@ return 0;
 #### example basic receive
 
 ```c
+#include "driver_nrf905_basic.h"
+
 uint8_t (*g_gpio_irq)(void) = NULL;
 uint8_t res;
 uint32_t timeout;

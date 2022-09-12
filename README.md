@@ -28,15 +28,15 @@ LibDriver NRF905 is the full function driver of NRF905 launched by LibDriver.It 
 
 /src includes LibDriver NRF905 source files.
 
-/interface includes LibDriver NRF905 SPI platform independent template。
+/interface includes LibDriver NRF905 SPI platform independent template.
 
-/test includes LibDriver NRF905 driver test code and this code can test the chip necessary function simply。
+/test includes LibDriver NRF905 driver test code and this code can test the chip necessary function simply.
 
 /example includes LibDriver NRF905 sample code.
 
 /doc includes LibDriver NRF905 offline document.
 
-/datasheet includes NRF905 datasheet。
+/datasheet includes NRF905 datasheet.
 
 /project includes the common Linux and MCU development board sample code. All projects use the shell script to debug the driver and the detail instruction can be found in each project's README.md.
 
@@ -51,6 +51,8 @@ Add /src, /interface and /example to your project.
 #### example basic sent
 
 ```C
+#include "driver_nrf905_basic.h"
+
 uint8_t (*g_gpio_irq)(void) = NULL;
 uint8_t res;
 uint8_t addr[4] = NRF905_BASIC_DEFAULT_RX_ADDR;
@@ -139,6 +141,8 @@ return 0;
 #### example basic receive
 
 ```c
+#include "driver_nrf905_basic.h"
+
 uint8_t (*g_gpio_irq)(void) = NULL;
 uint8_t res;
 uint32_t timeout;
