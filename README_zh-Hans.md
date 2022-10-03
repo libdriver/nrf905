@@ -51,6 +51,8 @@ LibDriver NRF905是LibDriver推出的NRF905全功能驱动程序，提供无线�
 #### example basic sent
 
 ```C
+#include "driver_nrf905_basic.h"
+
 uint8_t (*g_gpio_irq)(void) = NULL;
 uint8_t res;
 uint8_t addr[4] = NRF905_BASIC_DEFAULT_RX_ADDR;
@@ -140,6 +142,8 @@ return 0;
 #### example basic receive
 
 ```C
+#include "driver_nrf905_basic.h"
+
 uint8_t (*g_gpio_irq)(void) = NULL;
 uint8_t res;
 uint32_t timeout;
