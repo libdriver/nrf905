@@ -97,7 +97,7 @@ uint8_t nrf905_interface_spi_write(uint8_t reg, uint8_t *buf, uint16_t len)
 
 /**
  * @brief      interface spi bus transmit
- * @param[out] *tx points to a tx data buffer
+ * @param[in]  *tx points to a tx data buffer
  * @param[out] *rx points to a rx data buffer
  * @param[in]  len is the length of the data buffer
  * @return     status code
