@@ -1,58 +1,96 @@
-### 1. chip
+### 1. Chip
 
-#### 1.1 chip info
+#### 1.1 Chip Info
 
-chip name : STM32F407ZGT6.
+Chip Name: STM32F407ZGT6.
 
-extern oscillator : 8MHz.
+Extern Oscillator: 8MHz.
 
-uart pin: TX/RX PA9/PA10.
+UART Pin: TX/RX PA9/PA10.
 
-spi pin: SCK/MISO/MOSI/CS  PA5/PA6/PA7/PA4.
+SPI Pin: SCK/MISO/MOSI/CS  PA5/PA6/PA7/PA4.
 
-gpio pin: CE/TX_EN/PWR_UP PB1/PB2/PA8.
+GPIO Pin: CE/TX_EN/PWR_UP PB1/PB2/PA8.
 
-int pin: INT PB0
+INT Pin: INT PB0
 
-### 2. shell
+### 2. Development and Debugging
 
-#### 2.1 shell parameter
+#### 2.1 Integrated Development Environment
 
-baud rate: 115200
+LidDriver provides both Keil and IAR integrated development environment projects.
 
-data bits : 8
+MDK is the Keil ARM project and your Keil version must be 5 or higher.Keil ARM project needs STMicroelectronics STM32F4 Series Device Family Pack and you can download from https://www.keil.com/dd2/stmicroelectronics/stm32f407zgtx.
 
-stop bits: 1
+EW is the IAR ARM project and your IAR version must be 9 or higher.
 
-parity: none
+#### 2.2 Serial Port Parameter
 
-flow control: none
+Baud Rate: 115200.
 
-### 3. nrf905
+Data Bits : 8.
+
+Stop Bits: 1.
+
+Parity: None.
+
+Flow Control: None.
+
+#### 2.3 Serial Port Assistant
+
+We use '\n' to wrap lines.If your serial port assistant displays exceptions (e.g. the displayed content does not divide lines), please modify the configuration of your serial port assistant or replace one that supports '\n' parsing.
+
+### 3. NRF905
 
 #### 3.1 command Instruction
 
-​           nrf905 is a basic command which can test all nrf905 driver function:
+1. Show nrf905 chip and driver information.
 
-​           -i        show nrf905 chip and driver information.
+   ```shell
+   nrf905 (-i | --information)
+   ```
 
-​           -h       show nrf905 help.
+2. Show nrf905 help.
 
-​           -p       show nrf905 pin connections of the current board.
+   ```shell
+   nrf905 (-h | --help)
+   ```
 
-​           -t (reg | sent | receive)
+3. Show nrf905 pin connections of the current board.
 
-​           -t  reg        run nrf905 register test.
+   ```shell
+   nrf905 (-p | --port)
+   ```
 
-​           -t sent        run nrf905 sent test.
+4. Run nrf905 register test.
 
-​           -t receive        run nrf905 receive test. 
+   ```shell
+   nrf905 (-t reg | --test=reg)
+   ```
 
-​           -c (sent <data> | receive <timeout>)
+5. Run nrf905 sent test.
 
-​           -c sent <data>        run nrf905 sent function.data is the send data and it's length must be less 32.
+   ```shell
+   nrf905 (-t sent | --test=sent)
+   ```
 
-​           -c receive <timeout>        run nrf905 receive function. timeout is the timeout time.
+6. Run nrf905 receive test.
+
+   ```shell
+   nrf905 (-t receive | --test=receive)
+   ```
+
+7. Run nrf905 sent function, data is the send data and it's length must be less 32.
+
+   ```shell
+   nrf905 (-e sent | --example=sent) [--data=<str>]
+   ```
+
+8. Run nrf905 receive function, timeout is the timeout time.
+
+   ```shell
+   nrf905 (-e receive | --example=receive) [--timeout=<time>]
+   ```
 
 #### 3.2 command example
 
@@ -234,18 +272,18 @@ nrf905: finish receive test.
 ```
 
 ```shell
-nrf905 -c sent libdriver-nrf905libdriver-nrf905
+nrf905 -e sent --data=libdriver--nrf905-nrf905-nrf905
 
-nrf905: sent libdriver-nrf905libdriver-nrf905.
+nrf905: sent libdriver--nrf905-nrf905-nrf905.
 nrf905: tx done.
 ```
 
 ```shell
-nrf905 -c receive 5000
+nrf905 -e receive --timeout=5000
 
 nrf905: receiving with timeout 5000 ms.
 nrf905: irq receive with length 32.
-libdriver-nrf905libdriver-nrf905.
+libdriver--nrf905-nrf905-nrf905 .
 nrf905: address match.
 nrf905: finish receiving.
 ```
@@ -253,21 +291,25 @@ nrf905: finish receiving.
 ```shell
 nrf905 -h
 
-nrf905 -i
-	show nrf905 chip and driver information.
-nrf905 -h
-	show nrf905 help.
-nrf905 -p
-	show nrf905 pin connections of the current board.
-nrf905 -t reg
-	run nrf905 register test.
-nrf905 -t sent
-	run nrf905 sent test.
-nrf905 -t receive
-	run nrf905 receive test.
-nrf905 -c sent <data>
-	run nrf905 sent function.data is the send data and it's length must be less 32.
-nrf905 -c receive <timeout>
-	run nrf905 receive function.timeout is the timeout time.
+Usage:
+  nrf905 (-i | --information)
+  nrf905 (-h | --help)
+  nrf905 (-p | --port)
+  nrf905 (-t reg | --test=reg)
+  nrf905 (-t sent | --test=sent)
+  nrf905 (-t receive | --test=receive)
+  nrf905 (-e sent | --example=sent) [--data=<str>]
+  nrf905 (-e receive | --example=receive) [--timeout=<time>]
+
+Options:
+      --data=<str>                   Set the send data.([default: LibDriver])
+  -e <sent | receive>, --example=<sent | receive>
+                                     Run the driver example.
+  -h, --help                         Show the help.
+  -i, --information                  Show the chip information.
+  -p, --port                         Display the pin connections of the current board.
+  -t <reg | sent | receive>, --test=<reg | sent | receive>
+                                     Run the driver test.
+      --timeout=<time>               Set the timeout in ms.([default: 1000])
 ```
 

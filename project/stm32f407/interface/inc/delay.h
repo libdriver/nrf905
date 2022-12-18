@@ -25,17 +25,17 @@
  * @brief     delay header file
  * @version   1.0.0
  * @author    Shifeng Li
- * @date      2021-2-12
+ * @date      2022-11-11
  *
  * <h3>history</h3>
  * <table>
  * <tr><th>Date        <th>Version  <th>Author      <th>Description
- * <tr><td>2021/02/12  <td>1.0      <td>Shifeng Li  <td>first upload
+ * <tr><td>2022/11/11  <td>1.0      <td>Shifeng Li  <td>first upload
  * </table>
  */
 
-#ifndef _DELAY_H_
-#define _DELAY_H_
+#ifndef DELAY_H
+#define DELAY_H
 
 #include "stm32f4xx_hal.h"
 

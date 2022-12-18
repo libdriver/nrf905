@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('driver__nrf905__sent__receive__test_8c
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="driver__nrf905__sent__receive__test_8h.html">driver_nrf905_sent_receive_test.h</a>&quot;</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">static</span> <a class="code" href="structnrf905__handle__s.html">nrf905_handle_t</a> gs_handle;        </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">static</span> uint8_t gs_rx_done;               </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">static</span> <span class="keyword">volatile</span> uint8_t gs_rx_done;      </div>
 <div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="group__nrf905__test__driver.html#ga94671dd5d58c4ff7d19a83baa616a329">   49</a></span>&#160;uint8_t <a class="code" href="group__nrf905__test__driver.html#ga94671dd5d58c4ff7d19a83baa616a329">nrf905_interrupt_test_irq_handler</a>(<span class="keywordtype">void</span>)</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="group__nrf905__basic__driver.html#gabdb5516051cd8ed79f37959501abb4ee">nrf905_irq_handler</a>(&amp;gs_handle) != 0)</div>

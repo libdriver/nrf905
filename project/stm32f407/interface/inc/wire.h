@@ -25,17 +25,17 @@
  * @brief     wire header file
  * @version   1.0.0
  * @author    Shifeng Li
- * @date      2021-2-12
+ * @date      2022-11-11
  *
  * <h3>history</h3>
  * <table>
  * <tr><th>Date        <th>Version  <th>Author      <th>Description
- * <tr><td>2021/02/12  <td>1.0      <td>Shifeng Li  <td>first upload
+ * <tr><td>2022/11/11  <td>1.0      <td>Shifeng Li  <td>first upload
  * </table>
  */
 
-#ifndef _WIRE_H_
-#define _WIRE_H_
+#ifndef WIRE_H
+#define WIRE_H
 
 #include "stm32f4xx_hal.h"
 
@@ -61,13 +61,13 @@ uint8_t wire_init(void);
  * @brief  wire bus deint
  * @return status code
  *         - 0 success
- * @note   IO is PA8
+ * @note   none
  */
 uint8_t wire_deinit(void);
 
 /**
  * @brief      wire bus read data
- * @param[out] *value points to a written data buffer
+ * @param[out] *value points to a read data buffer
  * @return     status code
  *             - 0 success
  * @note       none
@@ -76,7 +76,7 @@ uint8_t wire_read(uint8_t *value);
 
 /**
  * @brief     wire bus write data
- * @param[in] value is the written data
+ * @param[in] value is the write data
  * @return    status code
  *            - 0 success
  * @note      none
@@ -95,16 +95,16 @@ uint8_t wire_ce_init(void);
  * @brief  wire bus deint
  * @return status code
  *         - 0 success
- * @note   IO is PB1
+ * @note   none
  */
 uint8_t wire_ce_deinit(void);
 
 /**
  * @brief     wire bus write data
- * @param[in] value is the written data
+ * @param[in] value is the write data
  * @return    status code
  *            - 0 success
- * @note      IO is PB1
+ * @note      none
  */
 uint8_t wire_ce_write(uint8_t value);
 
@@ -120,16 +120,16 @@ uint8_t wire_en_init(void);
  * @brief  wire bus deint
  * @return status code
  *         - 0 success
- * @note   IO is PB2
+ * @note   none
  */
 uint8_t wire_en_deinit(void);
 
 /**
  * @brief     wire bus write data
- * @param[in] value is the written data
+ * @param[in] value is the write data
  * @return    status code
  *            - 0 success
- * @note      IO is PB2
+ * @note      none
  */
 uint8_t wire_en_write(uint8_t value);
 
