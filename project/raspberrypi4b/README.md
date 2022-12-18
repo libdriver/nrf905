@@ -1,14 +1,14 @@
-### 1. Chip
+### 1. Board
 
-#### 1.1 Chip Info
+#### 1.1 Board Info
 
-chip name : Raspberry Pi 4B.
+Board Name: Raspberry Pi 4B.
 
-spi pin: SCLK/MOSI/MISO/CS GPIO11/GPIO10/GPIO9/GPIO8.
+SPI Pin: SCLK/MOSI/MISO/CS GPIO11/GPIO10/GPIO9/GPIO8.
 
-gpio pin: CE/TX_EN/PWR_UP GPIO22/GPIO27/GPIO5.
+GPIO Pin: CE/TX_EN/PWR_UP GPIO22/GPIO27/GPIO5.
 
-int pin: INT GPIO17.
+INT Pin: INT GPIO17.
 
 ### 2. Install
 
@@ -78,27 +78,53 @@ find_package(nrf905 REQUIRED)
 
 #### 3.1 Command Instruction
 
-​           nrf905 is a basic command which can test all nrf905 driver function:
+1. Show nrf905 chip and driver information.
 
-​           -i        show nrf905 chip and driver information.
+   ```shell
+   nrf905 (-i | --information)
+   ```
 
-​           -h       show nrf905 help.
+2. Show nrf905 help.
 
-​           -p       show nrf905 pin connections of the current board.
+   ```shell
+   nrf905 (-h | --help)
+   ```
 
-​           -t (reg | sent | receive)
+3. Show nrf905 pin connections of the current board.
 
-​           -t  reg        run nrf905 register test.
+   ```shell
+   nrf905 (-p | --port)
+   ```
 
-​           -t sent        run nrf905 sent test.
+4. Run nrf905 register test.
 
-​           -t receive        run nrf905 receive test. 
+   ```shell
+   nrf905 (-t reg | --test=reg)
+   ```
 
-​           -c (sent <data> | receive <timeout>)
+5. Run nrf905 sent test.
 
-​           -c sent <data>        run nrf905 sent function.data is the send data and it's length must be less 32.
+   ```shell
+   nrf905 (-t sent | --test=sent)
+   ```
 
-​           -c receive <timeout>        run nrf905 receive function. timeout is the timeout time.
+6. Run nrf905 receive test.
+
+   ```shell
+   nrf905 (-t receive | --test=receive)
+   ```
+
+7. Run nrf905 sent function, data is the send data and it's length must be less 32.
+
+   ```shell
+   nrf905 (-e sent | --example=sent) [--data=<str>]
+   ```
+
+8. Run nrf905 receive function, timeout is the timeout time.
+
+   ```shell
+   nrf905 (-e receive | --example=receive) [--timeout=<time>]
+   ```
 
 #### 3.2 Command Example
 
@@ -280,40 +306,44 @@ nrf905: finish receive test.
 ```
 
 ```shell
-./nrf905 -c sent libdriver-nrf905libdriver-nrf905
+./nrf905 -e sent --data=libdriver--nrf905-nrf905-nrf905
 
-nrf905: sent libdriver-nrf905libdriver-nrf905.
+nrf905: sent libdriver--nrf905-nrf905-nrf905.
 nrf905: tx done.
 ```
 
 ```shell
-./nrf905 -c receive 5000
+./nrf905 -e receive --timeout=5000
 
 nrf905: receiving with timeout 5000 ms.
 nrf905: irq receive with length 32.
-libdriver-nrf905libdriver-nrf905.
-nrf905: address match.
+libdriver--nrf905-nrf905-nrf905 
+rf905: address match.
 nrf905: finish receiving.
 ```
 
 ```shell
 ./nrf905 -h
 
-nrf905 -i
-	show nrf905 chip and driver information.
-nrf905 -h
-	show nrf905 help.
-nrf905 -p
-	show nrf905 pin connections of the current board.
-nrf905 -t reg
-	run nrf905 register test.
-nrf905 -t sent
-	run nrf905 sent test.
-nrf905 -t receive
-	run nrf905 receive test.
-nrf905 -c sent <data>
-	run nrf905 sent function.data is the send data and it's length must be less 32.
-nrf905 -c receive <timeout>
-	run nrf905 receive function.timeout is the timeout time.
+Usage:
+  nrf905 (-i | --information)
+  nrf905 (-h | --help)
+  nrf905 (-p | --port)
+  nrf905 (-t reg | --test=reg)
+  nrf905 (-t sent | --test=sent)
+  nrf905 (-t receive | --test=receive)
+  nrf905 (-e sent | --example=sent) [--data=<str>]
+  nrf905 (-e receive | --example=receive) [--timeout=<time>]
+
+Options:
+      --data=<str>                   Set the send data.([default: LibDriver])
+  -e <sent | receive>, --example=<sent | receive>
+                                     Run the driver example.
+  -h, --help                         Show the help.
+  -i, --information                  Show the chip information.
+  -p, --port                         Display the pin connections of the current board.
+  -t <reg | sent | receive>, --test=<reg | sent | receive>
+                                     Run the driver test.
+      --timeout=<time>               Set the timeout in ms.([default: 1000])
 ```
 

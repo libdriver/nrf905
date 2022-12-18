@@ -1280,7 +1280,7 @@ uint8_t nrf905_set_output_power(nrf905_handle_t *handle, nrf905_output_power_t o
 /**
  * @brief      get the output power
  * @param[in]  *handle points to a nrf905 handle structure
- * @param[out] *output_power points to a output power buffer
+ * @param[out] *output_power points to an output power buffer
  * @return     status code
  *             - 0 success
  *             - 1 get output power failed
@@ -1466,7 +1466,7 @@ uint8_t nrf905_set_rx_address_width(nrf905_handle_t *handle, nrf905_address_widt
 /**
  * @brief      get the rx address width
  * @param[in]  *handle points to a nrf905 handle structure
- * @param[out] *width points to a address width buffer
+ * @param[out] *width points to an address width buffer
  * @return     status code
  *             - 0 success
  *             - 1 get rx address width failed
@@ -1528,7 +1528,7 @@ uint8_t nrf905_set_tx_address_width(nrf905_handle_t *handle, nrf905_address_widt
 /**
  * @brief      get the tx address width
  * @param[in]  *handle points to a nrf905 handle structure
- * @param[out] *width points to a address width buffer
+ * @param[out] *width points to an address width buffer
  * @return     status code
  *             - 0 success
  *             - 1 get tx address width failed

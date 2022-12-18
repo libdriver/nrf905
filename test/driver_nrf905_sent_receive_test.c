@@ -37,7 +37,7 @@
 #include "driver_nrf905_sent_receive_test.h"
 
 static nrf905_handle_t gs_handle;        /**< nrf905 handle */
-static uint8_t gs_rx_done;               /**< rx done */
+static volatile uint8_t gs_rx_done;      /**< rx done */
 
 /**
  * @brief  nrf905 interrupt test irq
