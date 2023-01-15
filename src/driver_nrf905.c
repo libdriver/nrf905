@@ -76,7 +76,7 @@
 
 /**
  * @brief      write and read bytes
- * @param[in]  *handle points to a nrf905 handle structure
+ * @param[in]  *handle points to an nrf905 handle structure
  * @param[out] *tx points to a tx data buffer
  * @param[out] *rx points to a rx data buffer
  * @param[in]  len is the length of the data buffer
@@ -99,7 +99,7 @@ static uint8_t a_nrf905_spi_transmit(nrf905_handle_t *handle, uint8_t *tx, uint8
 
 /**
  * @brief      read bytes
- * @param[in]  *handle points to a nrf905 handle structure
+ * @param[in]  *handle points to an nrf905 handle structure
  * @param[in]  reg is the register address
  * @param[out] *buf points to a data buffer
  * @param[in]  len is the data length
@@ -122,7 +122,7 @@ static uint8_t a_nrf905_spi_read(nrf905_handle_t *handle, uint8_t reg, uint8_t *
 
 /**
  * @brief     write bytes
- * @param[in] *handle points to a nrf905 handle structure
+ * @param[in] *handle points to an nrf905 handle structure
  * @param[in] reg is the register address
  * @param[in] *buf points to a data buffer
  * @param[in] len is the data length
@@ -145,7 +145,7 @@ static uint8_t a_nrf905_spi_write(nrf905_handle_t *handle, uint8_t reg, uint8_t 
 
 /**
  * @brief     initialize the chip
- * @param[in] *handle points to a nrf905 handle structure
+ * @param[in] *handle points to an nrf905 handle structure
  * @return    status code
  *            - 0 success
  *            - 1 spi initialization failed
@@ -311,7 +311,7 @@ uint8_t nrf905_init(nrf905_handle_t *handle)
 
 /**
  * @brief     close the chip
- * @param[in] *handle points to a nrf905 handle structure
+ * @param[in] *handle points to an nrf905 handle structure
  * @return    status code
  *            - 0 success
  *            - 1 power down failed
@@ -372,7 +372,7 @@ uint8_t nrf905_deinit(nrf905_handle_t *handle)
 
 /**
  * @brief     irq handler
- * @param[in] *handle points to a nrf905 handle structure
+ * @param[in] *handle points to an nrf905 handle structure
  * @return    status code
  *            - 0 success
  *            - 1 run failed
@@ -460,7 +460,7 @@ uint8_t nrf905_irq_handler(nrf905_handle_t *handle)
 
 /**
  * @brief     set the power up
- * @param[in] *handle points to a nrf905 handle structure
+ * @param[in] *handle points to an nrf905 handle structure
  * @param[in] enable is a bool value
  * @return    status code
  *            - 0 success
@@ -494,7 +494,7 @@ uint8_t nrf905_set_power_up(nrf905_handle_t *handle, nrf905_bool_t enable)
 
 /**
  * @brief     enable or disable the chip
- * @param[in] *handle points to a nrf905 handle structure
+ * @param[in] *handle points to an nrf905 handle structure
  * @param[in] enable is a bool value
  * @return    status code
  *            - 0 success
@@ -528,7 +528,7 @@ uint8_t nrf905_set_enable(nrf905_handle_t *handle, nrf905_bool_t enable)
 
 /**
  * @brief     set the mode
- * @param[in] *handle points to a nrf905 handle structure
+ * @param[in] *handle points to an nrf905 handle structure
  * @param[in] mode is the chip mode
  * @return    status code
  *            - 0 success
@@ -564,7 +564,7 @@ uint8_t nrf905_set_mode(nrf905_handle_t *handle, nrf905_mode_t mode)
 
 /**
  * @brief     sent data
- * @param[in] *handle points to a nrf905 handle structure
+ * @param[in] *handle points to an nrf905 handle structure
  * @param[in] *buf points to a data buffer
  * @param[in] len is the buffer length
  * @return    status code
@@ -656,7 +656,7 @@ uint8_t nrf905_sent(nrf905_handle_t *handle, uint8_t *buf, uint8_t len)
 
 /**
  * @brief     write the conf
- * @param[in] *handle points to a nrf905 handle structure
+ * @param[in] *handle points to an nrf905 handle structure
  * @return    status code
  *            - 0 success
  *            - 1 write conf failed
@@ -690,7 +690,7 @@ uint8_t nrf905_write_conf(nrf905_handle_t *handle)
 
 /**
  * @brief      read the conf
- * @param[in]  *handle points to a nrf905 handle structure
+ * @param[in]  *handle points to an nrf905 handle structure
  * @param[out] *conf points to a conf buffer
  * @return     status code
  *             - 0 success
@@ -725,7 +725,7 @@ uint8_t nrf905_read_conf(nrf905_handle_t *handle, uint8_t conf[10])
 
 /**
  * @brief     update the conf
- * @param[in] *handle points to a nrf905 handle structure
+ * @param[in] *handle points to an nrf905 handle structure
  * @param[in] *conf points to a conf buffer
  * @return    status code
  *            - 0 success
@@ -752,7 +752,7 @@ uint8_t nrf905_update_conf(nrf905_handle_t *handle, uint8_t conf[10])
 
 /**
  * @brief     set the tx payload
- * @param[in] *handle points to a nrf905 handle structure
+ * @param[in] *handle points to an nrf905 handle structure
  * @param[in] *buf points to a data buffer
  * @param[in] len is the buffer length
  * @return    status code
@@ -795,7 +795,7 @@ uint8_t nrf905_set_tx_payload(nrf905_handle_t *handle, uint8_t *buf, uint8_t len
 
 /**
  * @brief      get the tx payload
- * @param[in]  *handle points to a nrf905 handle structure
+ * @param[in]  *handle points to an nrf905 handle structure
  * @param[out] *buf points to a data buffer
  * @param[in]  len is the buffer length
  * @return     status code
@@ -838,7 +838,7 @@ uint8_t nrf905_get_tx_payload(nrf905_handle_t *handle, uint8_t *buf, uint8_t len
 
 /**
  * @brief      get the rx payload
- * @param[in]  *handle points to a nrf905 handle structure
+ * @param[in]  *handle points to an nrf905 handle structure
  * @param[out] *buf points to a data buffer
  * @param[in]  len is the buffer length
  * @return     status code
@@ -881,7 +881,7 @@ uint8_t nrf905_get_rx_payload(nrf905_handle_t *handle, uint8_t *buf, uint8_t len
 
 /**
  * @brief     set the tx address
- * @param[in] *handle points to a nrf905 handle structure
+ * @param[in] *handle points to an nrf905 handle structure
  * @param[in] *addr points to an address buffer
  * @param[in] len is the address length
  * @return    status code
@@ -924,7 +924,7 @@ uint8_t nrf905_set_tx_address(nrf905_handle_t *handle, uint8_t *addr, uint8_t le
 
 /**
  * @brief      get the tx address
- * @param[in]  *handle points to a nrf905 handle structure
+ * @param[in]  *handle points to an nrf905 handle structure
  * @param[out] *addr points to an address buffer
  * @param[in]  len is the address length
  * @return     status code
@@ -967,7 +967,7 @@ uint8_t nrf905_get_tx_address(nrf905_handle_t *handle, uint8_t *addr, uint8_t le
 
 /**
  * @brief     config the channel
- * @param[in] *handle points to a nrf905 handle structure
+ * @param[in] *handle points to an nrf905 handle structure
  * @param[in] freq is the chip frequency config
  * @param[in] mode is the pll mode
  * @param[in] power is the output power
@@ -1015,7 +1015,7 @@ uint8_t nrf905_channel_config(nrf905_handle_t *handle, uint16_t freq, nrf905_pll
 
 /**
  * @brief      get the status
- * @param[in]  *handle points to a nrf905 handle structure
+ * @param[in]  *handle points to an nrf905 handle structure
  * @param[out] *status points to a status buffer
  * @return     status code
  *             - 0 success
@@ -1052,7 +1052,7 @@ uint8_t nrf905_get_status(nrf905_handle_t *handle, uint8_t *status)
 
 /**
  * @brief     set the frequency
- * @param[in] *handle points to a nrf905 handle structure
+ * @param[in] *handle points to an nrf905 handle structure
  * @param[in] freq is the chip frequency config
  * @return    status code
  *            - 0 success
@@ -1092,7 +1092,7 @@ uint8_t nrf905_set_frequency(nrf905_handle_t *handle, uint16_t freq)
 
 /**
  * @brief      get the frequency
- * @param[in]  *handle points to a nrf905 handle structure
+ * @param[in]  *handle points to an nrf905 handle structure
  * @param[out] *freq points to a chip frequency config buffer
  * @return     status code
  *             - 0 success
@@ -1125,7 +1125,7 @@ uint8_t nrf905_get_frequency(nrf905_handle_t *handle, uint16_t *freq)
 
 /**
  * @brief      convert the frequency to the register raw data
- * @param[in]  *handle points to a nrf905 handle structure
+ * @param[in]  *handle points to an nrf905 handle structure
  * @param[in]  mhz is the frequency
  * @param[out] *reg points to a register raw buffer
  * @return     status code
@@ -1155,7 +1155,7 @@ uint8_t nrf905_frequency_convert_to_register(nrf905_handle_t *handle, float mhz,
 
 /**
  * @brief      convert the register raw data to the frequency
- * @param[in]  *handle points to a nrf905 handle structure
+ * @param[in]  *handle points to an nrf905 handle structure
  * @param[in]  reg is the register raw data
  * @param[out] *mhz points to a frequency buffer
  * @return     status code
@@ -1185,7 +1185,7 @@ uint8_t nrf905_frequency_convert_to_data(nrf905_handle_t *handle, uint16_t reg, 
 
 /**
  * @brief     set the pll mode
- * @param[in] *handle points to a nrf905 handle structure
+ * @param[in] *handle points to an nrf905 handle structure
  * @param[in] mode is the pll mode
  * @return    status code
  *            - 0 success
@@ -1217,7 +1217,7 @@ uint8_t nrf905_set_pll_mode(nrf905_handle_t *handle, nrf905_pll_mode_t mode)
 
 /**
  * @brief      get the pll mode
- * @param[in]  *handle points to a nrf905 handle structure
+ * @param[in]  *handle points to an nrf905 handle structure
  * @param[out] *mode points to a pll mode buffer
  * @return     status code
  *             - 0 success
@@ -1247,7 +1247,7 @@ uint8_t nrf905_get_pll_mode(nrf905_handle_t *handle, nrf905_pll_mode_t *mode)
 
 /**
  * @brief     set the output power
- * @param[in] *handle points to a nrf905 handle structure
+ * @param[in] *handle points to an nrf905 handle structure
  * @param[in] output_power is the output power
  * @return    status code
  *            - 0 success
@@ -1279,7 +1279,7 @@ uint8_t nrf905_set_output_power(nrf905_handle_t *handle, nrf905_output_power_t o
 
 /**
  * @brief      get the output power
- * @param[in]  *handle points to a nrf905 handle structure
+ * @param[in]  *handle points to an nrf905 handle structure
  * @param[out] *output_power points to an output power buffer
  * @return     status code
  *             - 0 success
@@ -1309,7 +1309,7 @@ uint8_t nrf905_get_output_power(nrf905_handle_t *handle, nrf905_output_power_t *
 
 /**
  * @brief     set the rx mode
- * @param[in] *handle points to a nrf905 handle structure
+ * @param[in] *handle points to an nrf905 handle structure
  * @param[in] mode is the rx mode
  * @return    status code
  *            - 0 success
@@ -1341,7 +1341,7 @@ uint8_t nrf905_set_rx_mode(nrf905_handle_t *handle, nrf905_rx_mode_t mode)
 
 /**
  * @brief      get the rx mode
- * @param[in]  *handle points to a nrf905 handle structure
+ * @param[in]  *handle points to an nrf905 handle structure
  * @param[out] *mode poits to a rx mode buffer
  * @return     status code
  *             - 0 success
@@ -1371,7 +1371,7 @@ uint8_t nrf905_get_rx_mode(nrf905_handle_t *handle, nrf905_rx_mode_t *mode)
 
 /**
  * @brief     enable or disable the auto retransmit
- * @param[in] *handle points to a nrf905 handle structure
+ * @param[in] *handle points to an nrf905 handle structure
  * @param[in] enable is a bool value
  * @return    status code
  *            - 0 success
@@ -1403,7 +1403,7 @@ uint8_t nrf905_set_auto_retransmit(nrf905_handle_t *handle, nrf905_bool_t enable
 
 /**
  * @brief      get the auto retransmit status
- * @param[in]  *handle points to a nrf905 handle structure
+ * @param[in]  *handle points to an nrf905 handle structure
  * @param[out] *enable points to a bool value buffer
  * @return     status code
  *             - 0 success
@@ -1433,7 +1433,7 @@ uint8_t nrf905_get_auto_retransmit(nrf905_handle_t *handle, nrf905_bool_t *enabl
 
 /**
  * @brief     set the rx address width
- * @param[in] *handle points to a nrf905 handle structure
+ * @param[in] *handle points to an nrf905 handle structure
  * @param[in] width is the address width
  * @return    status code
  *            - 0 success
@@ -1465,7 +1465,7 @@ uint8_t nrf905_set_rx_address_width(nrf905_handle_t *handle, nrf905_address_widt
 
 /**
  * @brief      get the rx address width
- * @param[in]  *handle points to a nrf905 handle structure
+ * @param[in]  *handle points to an nrf905 handle structure
  * @param[out] *width points to an address width buffer
  * @return     status code
  *             - 0 success
@@ -1495,7 +1495,7 @@ uint8_t nrf905_get_rx_address_width(nrf905_handle_t *handle, nrf905_address_widt
 
 /**
  * @brief     set the tx address width
- * @param[in] *handle points to a nrf905 handle structure
+ * @param[in] *handle points to an nrf905 handle structure
  * @param[in] width is the address width
  * @return    status code
  *            - 0 success
@@ -1527,7 +1527,7 @@ uint8_t nrf905_set_tx_address_width(nrf905_handle_t *handle, nrf905_address_widt
 
 /**
  * @brief      get the tx address width
- * @param[in]  *handle points to a nrf905 handle structure
+ * @param[in]  *handle points to an nrf905 handle structure
  * @param[out] *width points to an address width buffer
  * @return     status code
  *             - 0 success
@@ -1557,7 +1557,7 @@ uint8_t nrf905_get_tx_address_width(nrf905_handle_t *handle, nrf905_address_widt
 
 /**
  * @brief     set the rx payload width
- * @param[in] *handle points to a nrf905 handle structure
+ * @param[in] *handle points to an nrf905 handle structure
  * @param[in] width is the rx payload width
  * @return    status code
  *            - 0 success
@@ -1591,7 +1591,7 @@ uint8_t nrf905_set_rx_payload_width(nrf905_handle_t *handle, uint8_t width)
 
 /**
  * @brief      get the rx payload width
- * @param[in]  *handle points to a nrf905 handle structure
+ * @param[in]  *handle points to an nrf905 handle structure
  * @param[out] *width points to a payload width buffer
  * @return     status code
  *             - 0 success
@@ -1618,7 +1618,7 @@ uint8_t nrf905_get_rx_payload_width(nrf905_handle_t *handle, uint8_t *width)
 
 /**
  * @brief     set the tx payload width
- * @param[in] *handle points to a nrf905 handle structure
+ * @param[in] *handle points to an nrf905 handle structure
  * @param[in] width is the tx payload width
  * @return    status code
  *            - 0 success
@@ -1652,7 +1652,7 @@ uint8_t nrf905_set_tx_payload_width(nrf905_handle_t *handle, uint8_t width)
 
 /**
  * @brief      get the tx payload width
- * @param[in]  *handle points to a nrf905 handle structure
+ * @param[in]  *handle points to an nrf905 handle structure
  * @param[out] *width points to a payload width buffer
  * @return     status code
  *             - 0 success
@@ -1679,7 +1679,7 @@ uint8_t nrf905_get_tx_payload_width(nrf905_handle_t *handle, uint8_t *width)
 
 /**
  * @brief     set the rx address
- * @param[in] *handle points to a nrf905 handle structure
+ * @param[in] *handle points to an nrf905 handle structure
  * @param[in] *addr points to a rx address
  * @return    status code
  *            - 0 success
@@ -1706,7 +1706,7 @@ uint8_t nrf905_set_rx_address(nrf905_handle_t *handle, uint8_t addr[4])
 
 /**
  * @brief      get the rx address
- * @param[in]  *handle points to a nrf905 handle structure
+ * @param[in]  *handle points to an nrf905 handle structure
  * @param[out] *addr points to a rx address
  * @return     status code
  *             - 0 success
@@ -1733,7 +1733,7 @@ uint8_t nrf905_get_rx_address(nrf905_handle_t *handle, uint8_t addr[4])
 
 /**
  * @brief     set the output clock frequency
- * @param[in] *handle points to a nrf905 handle structure
+ * @param[in] *handle points to an nrf905 handle structure
  * @param[in] freq is the output clock frequency
  * @return    status code
  *            - 0 success
@@ -1765,7 +1765,7 @@ uint8_t nrf905_set_output_clock_frequency(nrf905_handle_t *handle, nrf905_output
 
 /**
  * @brief      get the output clock frequency
- * @param[in]  *handle points to a nrf905 handle structure
+ * @param[in]  *handle points to an nrf905 handle structure
  * @param[out] *freq points to an output clock frequency buffer
  * @return     status code
  *             - 0 success
@@ -1795,7 +1795,7 @@ uint8_t nrf905_get_output_clock_frequency(nrf905_handle_t *handle, nrf905_output
 
 /**
  * @brief     enable or disable the output clock
- * @param[in] *handle points to a nrf905 handle structure
+ * @param[in] *handle points to an nrf905 handle structure
  * @param[in] enable is a bool value
  * @return    status code
  *            - 0 success
@@ -1827,7 +1827,7 @@ uint8_t nrf905_set_output_clock(nrf905_handle_t *handle, nrf905_bool_t enable)
 
 /**
  * @brief      get the output clock status
- * @param[in]  *handle points to a nrf905 handle structure
+ * @param[in]  *handle points to an nrf905 handle structure
  * @param[out] *enable points to a bool value buffer
  * @return     status code
  *             - 0 success
@@ -1857,7 +1857,7 @@ uint8_t nrf905_get_output_clock(nrf905_handle_t *handle, nrf905_bool_t *enable)
 
 /**
  * @brief     set the crystal oscillator frequency
- * @param[in] *handle points to a nrf905 handle structure
+ * @param[in] *handle points to an nrf905 handle structure
  * @param[in] freq is the crystal oscillator frequency
  * @return    status code
  *            - 0 success
@@ -1889,7 +1889,7 @@ uint8_t nrf905_set_crystal_oscillator_frequency(nrf905_handle_t *handle, nrf905_
 
 /**
  * @brief      get the crystal oscillator frequency
- * @param[in]  *handle points to a nrf905 handle structure
+ * @param[in]  *handle points to an nrf905 handle structure
  * @param[out] *freq points to a crystal oscillator frequency buffer
  * @return     status code
  *             - 0 success
@@ -1919,7 +1919,7 @@ uint8_t nrf905_get_crystal_oscillator_frequency(nrf905_handle_t *handle, nrf905_
 
 /**
  * @brief     enable or disable the crc
- * @param[in] *handle points to a nrf905 handle structure
+ * @param[in] *handle points to an nrf905 handle structure
  * @param[in] enable is a bool value
  * @return    status code
  *            - 0 success
@@ -1951,7 +1951,7 @@ uint8_t nrf905_set_crc(nrf905_handle_t *handle, nrf905_bool_t enable)
 
 /**
  * @brief      get the crc status
- * @param[in]  *handle points to a nrf905 handle structure
+ * @param[in]  *handle points to an nrf905 handle structure
  * @param[out] *enable points to a bool value buffer
  * @return     status code
  *             - 0 success
@@ -1981,7 +1981,7 @@ uint8_t nrf905_get_crc(nrf905_handle_t *handle, nrf905_bool_t *enable)
 
 /**
  * @brief     set the crc mode
- * @param[in] *handle points to a nrf905 handle structure
+ * @param[in] *handle points to an nrf905 handle structure
  * @param[in] mode is the crc mode
  * @return    status code
  *            - 0 success
@@ -2013,7 +2013,7 @@ uint8_t nrf905_set_crc_mode(nrf905_handle_t *handle, nrf905_crc_mode_t mode)
 
 /**
  * @brief      get the crc mode
- * @param[in]  *handle points to a nrf905 handle structure
+ * @param[in]  *handle points to an nrf905 handle structure
  * @param[out] *mode points to a crc mode buffer
  * @return     status code
  *             - 0 success
@@ -2043,7 +2043,7 @@ uint8_t nrf905_get_crc_mode(nrf905_handle_t *handle, nrf905_crc_mode_t *mode)
 
 /**
  * @brief     set the chip register
- * @param[in] *handle points to a nrf905 handle structure
+ * @param[in] *handle points to an nrf905 handle structure
  * @param[in] reg is the register address
  * @param[in] *buf points to a data buffer
  * @param[in] len is the data buffer length
@@ -2070,7 +2070,7 @@ uint8_t nrf905_set_reg(nrf905_handle_t *handle, uint8_t reg, uint8_t *buf, uint1
 
 /**
  * @brief      get the chip register
- * @param[in]  *handle points to a nrf905 handle structure
+ * @param[in]  *handle points to an nrf905 handle structure
  * @param[in]  reg is the register address
  * @param[out] *buf points to a data buffer
  * @param[in]  len is the data buffer length
@@ -2097,7 +2097,7 @@ uint8_t nrf905_get_reg(nrf905_handle_t *handle, uint8_t reg, uint8_t *buf, uint1
 
 /**
  * @brief      get chip's information
- * @param[out] *info points to a nrf905 info structure
+ * @param[out] *info points to an nrf905 info structure
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
