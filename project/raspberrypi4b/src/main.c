@@ -114,8 +114,8 @@ uint8_t nrf905(uint8_t argc, char **argv)
         {"timeout", required_argument, NULL, 2},
         {NULL, 0, NULL, 0},
     };
-    char type[32] = "unknow";
-    char data[32] = "LibDriver";
+    char type[33] = "unknow";
+    char data[33] = "LibDriver";
     uint32_t timeout = 1000;
     
     /* if no params */
@@ -141,7 +141,7 @@ uint8_t nrf905(uint8_t argc, char **argv)
             case 'h' :
             {
                 /* set the type */
-                memset(type, 0, sizeof(char) * 32);
+                memset(type, 0, sizeof(char) * 33);
                 snprintf(type, 32, "h");
                 
                 break;
@@ -151,7 +151,7 @@ uint8_t nrf905(uint8_t argc, char **argv)
             case 'i' :
             {
                 /* set the type */
-                memset(type, 0, sizeof(char) * 32);
+                memset(type, 0, sizeof(char) * 33);
                 snprintf(type, 32, "i");
                 
                 break;
@@ -161,7 +161,7 @@ uint8_t nrf905(uint8_t argc, char **argv)
             case 'p' :
             {
                 /* set the type */
-                memset(type, 0, sizeof(char) * 32);
+                memset(type, 0, sizeof(char) * 33);
                 snprintf(type, 32, "p");
                 
                 break;
@@ -171,7 +171,7 @@ uint8_t nrf905(uint8_t argc, char **argv)
             case 'e' :
             {
                 /* set the type */
-                memset(type, 0, sizeof(char) * 32);
+                memset(type, 0, sizeof(char) * 33);
                 snprintf(type, 32, "e_%s", optarg);
                 
                 break;
@@ -181,7 +181,7 @@ uint8_t nrf905(uint8_t argc, char **argv)
             case 't' :
             {
                 /* set the type */
-                memset(type, 0, sizeof(char) * 32);
+                memset(type, 0, sizeof(char) * 33);
                 snprintf(type, 32, "t_%s", optarg);
                 
                 break;
@@ -191,6 +191,7 @@ uint8_t nrf905(uint8_t argc, char **argv)
             case 1 :
             {
                 /* copy data */
+                memset(data, 0, sizeof(char) * 33);
                 strncpy(data, optarg, 32);
                 
                 break;
