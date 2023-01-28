@@ -39,6 +39,8 @@ LibDriver NRF905是LibDriver推出的NRF905全功能驅動程序，提供無線�
 
 /project目錄包含了常用Linux與單片機開發板的工程樣例。所有工程均採用shell腳本作為調試方法，詳細內容可參考每個工程裡面的README.md。
 
+/misra目錄包含了LibDriver MISRA程式碼掃描結果。
+
 ### 安裝
 
 參考/interface目錄下與平台無關的SPI總線模板，完成指定平台的SPI總線驅動。
