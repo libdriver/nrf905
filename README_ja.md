@@ -8,9 +8,9 @@
 
 [![MISRA](https://img.shields.io/badge/misra-compliant-brightgreen.svg)](/misra/README.md) [![API](https://img.shields.io/badge/api-reference-blue.svg)](https://www.libdriver.com/docs/nrf905/index.html) [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](/LICENSE)
 
-NRF905는 433/868/915MHz ISM 대역용 단일 칩 무선 송수신기입니다. 송수신기는 완전히 통합된 주파수 합성기, 복조기가 있는 수신기 체인, 전력 증폭기, 수정 발진기 및 변조기로 구성됩니다. ShockBurst™ 기능은 프리앰블과 CRC를 자동으로 처리합니다. SPI를 통해 nRF905를 쉽게 구성할 수 있습니다. 소비 전류는 -10dBm의 출력 전력에서 송신에서 9mA, 수신 모드에서 12.5mA로 매우 낮습니다. 내장된 절전 모드로 절전을 쉽게 실현할 수 있습니다. NRF905는 무선 데이터 통신, 경보 보안 시스템, 홈 오토메이션, 원격 제어 등에 사용됩니다.
+NRF905 は、433/868/915MHz ISM バンド用のシングルチップ無線トランシーバです。 トランシーバーは、完全に統合された周波数シンセサイザー、復調器を備えたレシーバー チェーン、パワー アンプ、水晶発振器、および変調器で構成されています。 ShockBurst™ 機能は、プリアンブルと CRC を自動的に処理します。 SPIを介してnRF905を簡単に設定できます。 消費電流は非常に低く、送信時は-10dBmの出力電力でわずか9mA、受信モードでは12.5mAです。 組み込みのパワー ダウン モードにより、省電力を簡単に実現できます。NRF905 は、ワイヤレス データ通信、アラーム セキュリティ システム、ホーム オートメーション、リモート コントロールなどで使用されます。
 
-LibDriver NRF905는 LibDriver에서 출시한 NRF905의 전체 기능 드라이버입니다. 무선 전송, 무선 수신 등의 기능을 제공합니다. LibDriver는 MISRA를 준수합니다.
+LibDriver NRF905 は、LibDriver が起動する NRF905 のフル機能ドライバーです。ワイヤレス送信、ワイヤレス受信などの機能を提供します。LibDriver は MISRA に準拠しています。
 
 ### 目次
 
