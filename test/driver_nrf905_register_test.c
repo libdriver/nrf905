@@ -1,6 +1,6 @@
 /**
  * Copyright (c) 2015 - present LibDriver All rights reserved
- * 
+ *
  * The MIT License (MIT)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -19,7 +19,7 @@
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE. 
+ * SOFTWARE.
  *
  * @file      driver_nrf905_register_test.c
  * @brief     driver nrf905 register test source file
@@ -69,7 +69,7 @@ uint8_t nrf905_register_test(void)
     nrf905_output_power_t output_power;
     nrf905_output_clock_frequency_t clock_freq;
     nrf905_crystal_oscillator_frequency_t osc_freq;
-    
+
     /* link function */
     DRIVER_NRF905_LINK_INIT(&gs_handle, nrf905_handle_t);
     DRIVER_NRF905_LINK_SPI_INIT(&gs_handle, nrf905_interface_spi_init);
@@ -89,13 +89,13 @@ uint8_t nrf905_register_test(void)
     DRIVER_NRF905_LINK_DELAY_MS(&gs_handle, nrf905_interface_delay_ms);
     DRIVER_NRF905_LINK_DEBUG_PEINT(&gs_handle, nrf905_interface_debug_print);
     DRIVER_NRF905_LINK_RECEIVE_CALLBACK(&gs_handle, nrf905_interface_receive_callback);
-    
+
     /* get information */
     res = nrf905_info(&info);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: get info failed.\n");
-        
+
         return 1;
     }
     else
@@ -111,52 +111,52 @@ uint8_t nrf905_register_test(void)
         nrf905_interface_debug_print("nrf905: max temperature is %0.1fC.\n", info.temperature_max);
         nrf905_interface_debug_print("nrf905: min temperature is %0.1fC.\n", info.temperature_min);
     }
-    
+
     /* start register test */
     nrf905_interface_debug_print("nrf905: start register test.\n");
-    
+
     /* init */
     res = nrf905_init(&gs_handle);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: init failed.\n");
-        
+
         return 1;
     }
-    
+
     /* power up the chip */
     res = nrf905_set_power_up(&gs_handle, NRF905_BOOL_TRUE);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: power up failed.\n");
         (void)(void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
-    
+
     /* disable the tx or rx */
     res = nrf905_set_enable(&gs_handle, NRF905_BOOL_FALSE);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: enable failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
-    
+
     /* set rx mode */
     res = nrf905_set_mode(&gs_handle, NRF905_MODE_RX);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: set mode failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
-    
+
     /* nrf905_set_tx_payload/nrf905_get_tx_payload test */
     nrf905_interface_debug_print("nrf905: nrf905_set_tx_payload/nrf905_get_tx_payload test.\n");
-    
+
     for (i = 0; i < 32; i++)
     {
         buf[i] = rand() % 256;
@@ -166,7 +166,7 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: set tx payload failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     res = nrf905_get_tx_payload(&gs_handle, buf_check, 32);
@@ -174,27 +174,27 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get tx payload failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check tx_payload %s.\n", (memcmp(buf, buf_check, 32) == 0) ? "ok" : "error");
-    
+
     /* nrf905_get_rx_payload test */
     nrf905_interface_debug_print("nrf905: nrf905_get_rx_payload test.\n");
-    
+
     res = nrf905_get_rx_payload(&gs_handle, buf_check, 32);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: get rx payload failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check rx payload %s.\n", (res == 0) ? "ok" : "error");
-    
+
     /* nrf905_set_tx_address/nrf905_get_tx_address test */
     nrf905_interface_debug_print("nrf905: nrf905_set_tx_address/nrf905_get_tx_address test.\n");
-    
+
     for (i = 0; i < 4; i++)
     {
         buf[i] = rand() % 256;
@@ -204,7 +204,7 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: set tx address failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     res = nrf905_get_tx_address(&gs_handle, buf_check, 4);
@@ -212,21 +212,21 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get tx address failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check tx address %s.\n", (memcmp(buf, buf_check, 4) == 0) ? "ok" : "error");
-    
+
     /* nrf905_set_frequency/nrf905_get_frequency test */
     nrf905_interface_debug_print("nrf905: nrf905_set_frequency/nrf905_get_frequency test.\n");
-    
+
     freq = rand() % 0x1FF;
     res = nrf905_set_frequency(&gs_handle, freq);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: set frequency failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     res = nrf905_get_frequency(&gs_handle, (uint16_t *)&freq_check);
@@ -234,21 +234,21 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get frequency failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check frequency %s.\n", (freq_check == freq) ? "ok" : "error");
-    
+
     /* nrf905_frequency_convert_to_register/nrf905_frequency_convert_to_data test */
     nrf905_interface_debug_print("nrf905: nrf905_frequency_convert_to_register/nrf905_frequency_convert_to_data test.\n");
-    
+
     mhz = 433.0f + (float)(rand() % 100) / 10.0f;
     res= nrf905_frequency_convert_to_register(&gs_handle, mhz, &reg);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: frequency convert to register failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: set frequency %0.2f MHz.\n", mhz);
@@ -257,21 +257,21 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: frequency convert to data failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check frequency %0.2f MHz.\n", mhz_check);
-    
+
     /* nrf905_set_pll_mode/nrf905_get_pll_mode test */
     nrf905_interface_debug_print("nrf905: nrf905_set_pll_mode/nrf905_get_pll_mode test.\n");
-    
+
     /* set pll mode 868_915_MHZ */
     res = nrf905_set_pll_mode(&gs_handle, NRF905_PLL_MODE_868_915_MHZ);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: set pll mode failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: set pll mode 868_915_MHZ.\n");
@@ -280,18 +280,18 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get pll mode failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check pll mode %s.\n", (mode == NRF905_PLL_MODE_868_915_MHZ) ? "ok" : "error");
-    
+
     /* set pll mode 433_MHZ */
     res = nrf905_set_pll_mode(&gs_handle, NRF905_PLL_MODE_433_MHZ);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: set pll mode failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: set pll mode 433_MHZ.\n");
@@ -300,21 +300,21 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get pll mode failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check pll mode %s.\n", (mode == NRF905_PLL_MODE_433_MHZ) ? "ok" : "error");
-    
+
     /* nrf905_set_output_power/nrf905_get_output_power test */
     nrf905_interface_debug_print("nrf905: nrf905_set_output_power/nrf905_get_output_power test.\n");
-    
+
     /* set output power -10dBm */
-    res = nrf905_set_output_power(&gs_handle, NRF905_OUTPUT_POWER_NEGTIVE_10_DBM);
+    res = nrf905_set_output_power(&gs_handle, NRF905_OUTPUT_POWER_NEGATIVE_10_DBM);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: set output power failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: set output power -10dBm.\n");
@@ -323,18 +323,18 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get output power failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
-    nrf905_interface_debug_print("nrf905: check output power %s.\n", (output_power == NRF905_OUTPUT_POWER_NEGTIVE_10_DBM) ? "ok" : "error");
-   
+    nrf905_interface_debug_print("nrf905: check output power %s.\n", (output_power == NRF905_OUTPUT_POWER_NEGATIVE_10_DBM) ? "ok" : "error");
+
     /* set output power -2dBm */
-    res = nrf905_set_output_power(&gs_handle, NRF905_OUTPUT_POWER_NEGTIVE_2_DBM);
+    res = nrf905_set_output_power(&gs_handle, NRF905_OUTPUT_POWER_NEGATIVE_2_DBM);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: set output power failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: set output power -2dBm.\n");
@@ -343,18 +343,18 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get output power failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
-    nrf905_interface_debug_print("nrf905: check output power %s.\n", (output_power == NRF905_OUTPUT_POWER_NEGTIVE_2_DBM) ? "ok" : "error");
-    
+    nrf905_interface_debug_print("nrf905: check output power %s.\n", (output_power == NRF905_OUTPUT_POWER_NEGATIVE_2_DBM) ? "ok" : "error");
+
     /* set output power +6dBm */
     res = nrf905_set_output_power(&gs_handle, NRF905_OUTPUT_POWER_6_DBM);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: set output power failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: set output power +6dBm.\n");
@@ -363,18 +363,18 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get output power failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check output power %s.\n", (output_power == NRF905_OUTPUT_POWER_6_DBM) ? "ok" : "error");
-    
+
     /* set output power +10dBm */
     res = nrf905_set_output_power(&gs_handle, NRF905_OUTPUT_POWER_10_DBM);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: set output power failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: set output power +10dBm.\n");
@@ -383,21 +383,21 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get output power failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check output power %s.\n", (output_power == NRF905_OUTPUT_POWER_10_DBM) ? "ok" : "error");
-    
+
     /* nrf905_set_rx_mode/nrf905_get_rx_mode test */
     nrf905_interface_debug_print("nrf905: nrf905_set_rx_mode/nrf905_get_rx_mode test.\n");
-    
+
     /* set rx mode reduced power */
     res = nrf905_set_rx_mode(&gs_handle, NRF905_RX_MODE_REDUCED_POWER);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: set rx mode failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: set rx mode reduced power.\n");
@@ -406,18 +406,18 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get rx mode failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check rx mode %s.\n", (rx_mode == NRF905_RX_MODE_REDUCED_POWER) ? "ok" : "error");
-    
+
     /* set rx mode normal */
     res = nrf905_set_rx_mode(&gs_handle, NRF905_RX_MODE_NORMAL);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: set rx mode failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: set rx mode normal.\n");
@@ -426,21 +426,21 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get rx mode failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check rx mode %s.\n", (rx_mode == NRF905_RX_MODE_NORMAL) ? "ok" : "error");
-    
+
     /* nrf905_set_auto_retransmit/nrf905_get_auto_retransmit test */
     nrf905_interface_debug_print("nrf905: nrf905_set_auto_retransmit/nrf905_get_auto_retransmit test.\n");
-    
+
     /* enable the auto retransmit */
     res = nrf905_set_auto_retransmit(&gs_handle, NRF905_BOOL_TRUE);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: set auto retransmit failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: enable the auto retransmit.\n");
@@ -449,18 +449,18 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get auto retransmit failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check auto retransmit %s.\n", (enable == NRF905_BOOL_TRUE) ? "ok" : "error");
-    
+
     /* disable the auto retransmit */
     res = nrf905_set_auto_retransmit(&gs_handle, NRF905_BOOL_FALSE);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: set auto retransmit failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: disable the auto retransmit.\n");
@@ -469,21 +469,21 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get auto retransmit failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check auto retransmit %s.\n", (enable == NRF905_BOOL_FALSE) ? "ok" : "error");
-    
+
     /* nrf905_set_rx_address_width/nrf905_get_rx_address_width test */
     nrf905_interface_debug_print("nrf905: nrf905_set_rx_address_width/nrf905_get_rx_address_width test.\n");
-    
+
     /* set rx address width 1 byte */
     res = nrf905_set_rx_address_width(&gs_handle, NRF905_ADDRESS_WIDTH_1_BYTE);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: set rx address width failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: set rx address width 1 byte.\n");
@@ -492,18 +492,18 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get rx address width failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check rx address width %s.\n", (width == NRF905_ADDRESS_WIDTH_1_BYTE) ? "ok" : "error");
-    
+
     /* set rx address width 4 byte */
     res = nrf905_set_rx_address_width(&gs_handle, NRF905_ADDRESS_WIDTH_4_BYTE);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: set rx address width failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: set rx address width 4 byte.\n");
@@ -512,21 +512,21 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get rx address width failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check rx address width %s.\n", (width == NRF905_ADDRESS_WIDTH_4_BYTE) ? "ok" : "error");
-    
+
     /* nrf905_set_tx_address_width/nrf905_get_tx_address_width test */
     nrf905_interface_debug_print("nrf905: nrf905_set_tx_address_width/nrf905_get_tx_address_width test.\n");
-    
+
     /* set tx address width 1 byte */
     res = nrf905_set_tx_address_width(&gs_handle, NRF905_ADDRESS_WIDTH_1_BYTE);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: set tx address width failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: set tx address width 1 byte.\n");
@@ -535,18 +535,18 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get tx address width failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check tx address width %s.\n", (width == NRF905_ADDRESS_WIDTH_1_BYTE) ? "ok" : "error");
-    
+
     /* set tx address width 4 byte */
     res = nrf905_set_tx_address_width(&gs_handle, NRF905_ADDRESS_WIDTH_4_BYTE);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: set tx address width failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: set tx address width 4 byte.\n");
@@ -555,21 +555,21 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get tx address width failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check tx address width %s.\n", (width == NRF905_ADDRESS_WIDTH_4_BYTE) ? "ok" : "error");
-    
+
     /* nrf905_set_rx_payload_width/nrf905_get_rx_payload_width test */
     nrf905_interface_debug_print("nrf905: nrf905_set_rx_payload_width/nrf905_get_rx_payload_width test.\n");
-    
+
     w = rand() % 32;
     res = nrf905_set_rx_payload_width(&gs_handle, w);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: set rx payload width failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: set rx payload width %d.\n", w);
@@ -578,21 +578,21 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get rx payload width failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check rx payload width %s.\n", (w_check == w) ? "ok" : "error");
-    
+
     /* nrf905_set_tx_payload_width/nrf905_get_tx_payload_width test */
     nrf905_interface_debug_print("nrf905: nrf905_set_tx_payload_width/nrf905_get_tx_payload_width test.\n");
-    
+
     /* set tx payload width */
     res = nrf905_set_tx_payload_width(&gs_handle, w);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: set tx payload width failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: set tx payload width %d.\n", w);
@@ -601,14 +601,14 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get tx payload width failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check tx payload width %s.\n", (w_check == w) ? "ok" : "error");
-    
+
     /* nrf905_set_rx_address/nrf905_get_rx_address test */
     nrf905_interface_debug_print("nrf905: nrf905_set_rx_address/nrf905_get_rx_address test.\n");
-    
+
     buf[0] = rand() % 256;
     buf[1] = rand() % 256;
     buf[2] = rand() % 256;
@@ -618,7 +618,7 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: set rx address failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: set rx address 0x%02X 0x%02X 0x%02X 0x%02X.\n",
@@ -628,21 +628,21 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get rx address failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check rx address %s.\n", (memcmp(buf, buf_check, 4) == 0) ? "ok" : "error");
-    
+
     /* nrf905_set_output_clock_frequency/nrf905_get_output_clock_frequency test */
     nrf905_interface_debug_print("nrf905: nrf905_set_output_clock_frequency/nrf905_get_output_clock_frequency test.\n");
-    
+
     /* set output clock frequency 4MHz */
     res = nrf905_set_output_clock_frequency(&gs_handle, NRF905_OUTPUT_CLOCK_FREQUENCY_4MHZ);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: set output clock frequency failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: set output clock frequency 4MHz.\n");
@@ -651,18 +651,18 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get output clock frequency failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check output clock frequency %s.\n", (clock_freq == NRF905_OUTPUT_CLOCK_FREQUENCY_4MHZ) ? "ok" : "error");
-    
+
     /* set output clock frequency 2MHz */
     res = nrf905_set_output_clock_frequency(&gs_handle, NRF905_OUTPUT_CLOCK_FREQUENCY_2MHZ);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: set output clock frequency failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: set output clock frequency 2MHz.\n");
@@ -671,18 +671,18 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get output clock frequency failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check output clock frequency %s.\n", (clock_freq == NRF905_OUTPUT_CLOCK_FREQUENCY_2MHZ) ? "ok" : "error");
-    
+
     /* set output clock frequency 1MHz */
     res = nrf905_set_output_clock_frequency(&gs_handle, NRF905_OUTPUT_CLOCK_FREQUENCY_1MHZ);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: set output clock frequency failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: set output clock frequency 1MHz.\n");
@@ -691,18 +691,18 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get output clock frequency failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check output clock frequency %s.\n", (clock_freq == NRF905_OUTPUT_CLOCK_FREQUENCY_1MHZ) ? "ok" : "error");
-    
+
     /* set output clock frequency 500KHz */
     res = nrf905_set_output_clock_frequency(&gs_handle, NRF905_OUTPUT_CLOCK_FREQUENCY_500KHZ);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: set output clock frequency failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: set output clock frequency 500KHz.\n");
@@ -711,21 +711,21 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get output clock frequency failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check output clock frequency %s.\n", (clock_freq == NRF905_OUTPUT_CLOCK_FREQUENCY_500KHZ) ? "ok" : "error");
-    
+
     /* nrf905_set_output_clock/nrf905_get_output_clock test */
     nrf905_interface_debug_print("nrf905: nrf905_set_output_clock/nrf905_get_output_clock test.\n");
-    
+
     /* disable the output clock */
     res = nrf905_set_output_clock(&gs_handle, NRF905_BOOL_FALSE);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: set output clock failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: disable the output clock.\n");
@@ -734,18 +734,18 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get output clock failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check output clock %s.\n", (enable == NRF905_BOOL_FALSE) ? "ok" : "error");
-    
+
     /* enable the output clock */
     res = nrf905_set_output_clock(&gs_handle, NRF905_BOOL_TRUE);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: set output clock failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: enable the output clock.\n");
@@ -754,21 +754,21 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get output clock failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check output clock %s.\n", (enable == NRF905_BOOL_TRUE) ? "ok" : "error");
-    
+
     /* nrf905_set_crystal_oscillator_frequency/nrf905_get_crystal_oscillator_frequency test */
     nrf905_interface_debug_print("nrf905: nrf905_set_crystal_oscillator_frequency/nrf905_get_crystal_oscillator_frequency test.\n");
-    
+
     /* set crystal oscillator frequency 4MHz */
     res = nrf905_set_crystal_oscillator_frequency(&gs_handle, NRF905_CRYSTAL_OSCILLATOR_FREQUENCY_4MHZ);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: set crystal oscillator frequency failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: set crystal oscillator frequency 4MHz.\n");
@@ -777,18 +777,18 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get crystal oscillator frequency failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check crystal oscillator frequency %s.\n", (osc_freq == NRF905_CRYSTAL_OSCILLATOR_FREQUENCY_4MHZ) ? "ok" : "error");
-    
+
     /* set crystal oscillator frequency 8MHz */
     res = nrf905_set_crystal_oscillator_frequency(&gs_handle, NRF905_CRYSTAL_OSCILLATOR_FREQUENCY_8MHZ);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: set crystal oscillator frequency failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: set crystal oscillator frequency 8MHz.\n");
@@ -797,18 +797,18 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get crystal oscillator frequency failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check crystal oscillator frequency %s.\n", (osc_freq == NRF905_CRYSTAL_OSCILLATOR_FREQUENCY_8MHZ) ? "ok" : "error");
-    
+
     /* set crystal oscillator frequency 12MHz */
     res = nrf905_set_crystal_oscillator_frequency(&gs_handle, NRF905_CRYSTAL_OSCILLATOR_FREQUENCY_12MHZ);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: set crystal oscillator frequency failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: set crystal oscillator frequency 12MHz.\n");
@@ -817,18 +817,18 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get crystal oscillator frequency failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check crystal oscillator frequency %s.\n", (osc_freq == NRF905_CRYSTAL_OSCILLATOR_FREQUENCY_12MHZ) ? "ok" : "error");
-    
+
     /* set crystal oscillator frequency 20MHz */
     res = nrf905_set_crystal_oscillator_frequency(&gs_handle, NRF905_CRYSTAL_OSCILLATOR_FREQUENCY_20MHZ);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: set crystal oscillator frequency failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: set crystal oscillator frequency 20MHz.\n");
@@ -837,18 +837,18 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get crystal oscillator frequency failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check crystal oscillator frequency %s.\n", (osc_freq == NRF905_CRYSTAL_OSCILLATOR_FREQUENCY_20MHZ) ? "ok" : "error");
-    
+
     /* set crystal oscillator frequency 16MHz */
     res = nrf905_set_crystal_oscillator_frequency(&gs_handle, NRF905_CRYSTAL_OSCILLATOR_FREQUENCY_16MHZ);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: set crystal oscillator frequency failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: set crystal oscillator frequency 16MHz.\n");
@@ -857,21 +857,21 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get crystal oscillator frequency failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check crystal oscillator frequency %s.\n", (osc_freq == NRF905_CRYSTAL_OSCILLATOR_FREQUENCY_16MHZ) ? "ok" : "error");
-    
+
     /* nrf905_set_crc/nrf905_get_crc test */
     nrf905_interface_debug_print("nrf905: nrf905_set_crc/nrf905_get_crc test.\n");
-    
+
     /* disable the crc */
     res = nrf905_set_crc(&gs_handle, NRF905_BOOL_FALSE);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: set crc failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: disable the crc.\n");
@@ -880,18 +880,18 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get crc failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check crc %s.\n", (enable == NRF905_BOOL_FALSE) ? "ok" : "error");
-    
+
     /* enable the crc */
     res = nrf905_set_crc(&gs_handle, NRF905_BOOL_TRUE);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: set crc failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: enable the crc.\n");
@@ -900,21 +900,21 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get crc failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check crc %s.\n", (enable == NRF905_BOOL_TRUE) ? "ok" : "error");
-    
+
     /* nrf905_set_crc_mode/nrf905_get_crc_mode test */
     nrf905_interface_debug_print("nrf905: nrf905_set_crc_mode/nrf905_get_crc_mode test.\n");
-    
+
     /* set crc mode 8 */
     res = nrf905_set_crc_mode(&gs_handle, NRF905_CRC_MODE_8);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: set crc mode failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: set crc mode 8.\n");
@@ -923,18 +923,18 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get crc mode failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check crc mode %s.\n", (crc_mode == NRF905_CRC_MODE_8) ? "ok" : "error");
-    
+
     /* set crc mode 16 */
     res = nrf905_set_crc_mode(&gs_handle, NRF905_CRC_MODE_16);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: set crc mode failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: set crc mode 16.\n");
@@ -943,21 +943,21 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get crc mode failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check crc mode %s.\n", (crc_mode == NRF905_CRC_MODE_16) ? "ok" : "error");
-    
+
     /* nrf905_read_conf/nrf905_write_conf test */
     nrf905_interface_debug_print("nrf905: nrf905_read_conf/nrf905_write_conf test.\n");
-    
+
     /* write conf */
     res = nrf905_write_conf(&gs_handle);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: write conf failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     memcpy((uint8_t *)buf, gs_handle.conf, 10);
@@ -966,20 +966,20 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: read conf failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check conf %s.\n", (memcmp(buf, buf_check, 10) == 0) ? "ok" : "error");
-    
+
     /* nrf905_read_conf/nrf905_update_conf test */
     nrf905_interface_debug_print("nrf905: nrf905_read_conf/nrf905_update_conf test.\n");
-    
+
     res = nrf905_update_conf(&gs_handle, (uint8_t *)buf);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: update conf failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     res = nrf905_read_conf(&gs_handle, (uint8_t *)buf_check);
@@ -987,20 +987,20 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: read conf failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check conf %s.\n", (memcmp(buf, buf_check, 10) == 0) ? "ok" : "error");
-    
+
     /* nrf905_channel_config/nrf905_read_conf test */
     nrf905_interface_debug_print("nrf905: nrf905_channel_config/nrf905_read_conf test.\n");
-    
+
     res = nrf905_channel_config(&gs_handle, 0x0000, NRF905_PLL_MODE_868_915_MHZ, NRF905_OUTPUT_POWER_6_DBM);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: channel conf failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     res = nrf905_read_conf(&gs_handle, (uint8_t *)buf);
@@ -1008,7 +1008,7 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: read conf failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     res = nrf905_update_conf(&gs_handle, (uint8_t *)buf);
@@ -1016,7 +1016,7 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: update conf failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     res = nrf905_get_frequency(&gs_handle, &freq);
@@ -1024,7 +1024,7 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get frequency failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     res = nrf905_get_pll_mode(&gs_handle, &mode);
@@ -1032,7 +1032,7 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get pll mode failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     res = nrf905_get_output_power(&gs_handle, &output_power);
@@ -1040,29 +1040,29 @@ uint8_t nrf905_register_test(void)
     {
         nrf905_interface_debug_print("nrf905: get output power failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: check channel config %s.\n",
                                 ((freq == 0x0000) && (mode == NRF905_PLL_MODE_868_915_MHZ)&&
                                  (output_power == NRF905_OUTPUT_POWER_6_DBM)) ? "ok" : "error");
-    
+
     /* nrf905_get_status test */
     nrf905_interface_debug_print("nrf905: nrf905_get_status test.\n");
-    
+
     res = nrf905_get_status(&gs_handle, &status);
     if (res != 0)
     {
         nrf905_interface_debug_print("nrf905: get status failed.\n");
         (void)nrf905_deinit(&gs_handle);
-        
+
         return 1;
     }
     nrf905_interface_debug_print("nrf905: status is 0x%02X.\n", status);
-    
+
     /* finish register test */
     nrf905_interface_debug_print("nrf905: finish register test.\n");
     (void)nrf905_deinit(&gs_handle);
-    
+
     return 0;
 }
