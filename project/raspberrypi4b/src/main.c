@@ -114,7 +114,7 @@ uint8_t nrf905(uint8_t argc, char **argv)
         {"timeout", required_argument, NULL, 2},
         {NULL, 0, NULL, 0},
     };
-    char type[33] = "unknow";
+    char type[33] = "unknown";
     char data[33] = "LibDriver";
     uint32_t timeout = 1000;
     
@@ -250,7 +250,7 @@ uint8_t nrf905(uint8_t argc, char **argv)
         /* set the gpio irq */
         g_gpio_irq = nrf905_interrupt_test_irq_handler;
         
-        /* run the sent test */
+        /* run sent test */
         res = nrf905_sent_test();
         if (res != 0)
         {
@@ -280,7 +280,7 @@ uint8_t nrf905(uint8_t argc, char **argv)
         /* set the gpio irq */
         g_gpio_irq = nrf905_interrupt_test_irq_handler;
         
-        /* run the receive test */
+        /* run receive test */
         res = nrf905_receive_test();
         if (res != 0)
         {
@@ -482,7 +482,7 @@ int main(uint8_t argc, char **argv)
     }
     else
     {
-        nrf905_interface_debug_print("nrf905: unknow status code.\n");
+        nrf905_interface_debug_print("nrf905: unknown status code.\n");
     }
 
     return 0;

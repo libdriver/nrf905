@@ -148,7 +148,7 @@ uint8_t nrf905(uint8_t argc, char **argv)
         {"timeout", required_argument, NULL, 2},
         {NULL, 0, NULL, 0},
     };
-    char type[33] = "unknow";
+    char type[33] = "unknown";
     char data[33] = "LibDriver";
     uint32_t timeout = 1000;
     
@@ -284,7 +284,7 @@ uint8_t nrf905(uint8_t argc, char **argv)
         /* set the gpio irq */
         g_gpio_irq = nrf905_interrupt_test_irq_handler;
         
-        /* run the sent test */
+        /* run sent test */
         res = nrf905_sent_test();
         if (res != 0)
         {
@@ -314,7 +314,7 @@ uint8_t nrf905(uint8_t argc, char **argv)
         /* set the gpio irq */
         g_gpio_irq = nrf905_interrupt_test_irq_handler;
         
-        /* run the receive test */
+        /* run receive test */
         res = nrf905_receive_test();
         if (res != 0)
         {
@@ -506,7 +506,7 @@ int main(void)
     /* uart init */
     uart_init(115200);
     
-    /* shell init && register nrf905 fuction */
+    /* shell init && register nrf905 function */
     shell_init();
     shell_register("nrf905", nrf905);
     uart_print("nrf905: welcome to libdriver nrf905.\n");
@@ -529,7 +529,7 @@ int main(void)
             }
             else if (res == 2)
             {
-                uart_print("nrf905: unknow command.\n");
+                uart_print("nrf905: unknown command.\n");
             }
             else if (res == 3)
             {
@@ -545,7 +545,7 @@ int main(void)
             }
             else
             {
-                uart_print("nrf905: unknow status code.\n");
+                uart_print("nrf905: unknown status code.\n");
             }
             uart_flush();
         }

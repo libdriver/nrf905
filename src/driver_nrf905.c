@@ -418,7 +418,7 @@ uint8_t nrf905_irq_handler(nrf905_handle_t *handle)
             handle->finished = 1;                                                                  /* flag finished */
             if (handle->receive_callback != NULL)                                                  /* if receive callback */
             {
-                handle->receive_callback(NRF905_STATUS_TX_DONE, NULL, 0);                          /* run the receive callback */
+                handle->receive_callback(NRF905_STATUS_TX_DONE, NULL, 0);                          /* run receive callback */
             }
         }
         else                                                                                       /* if rx mode */
@@ -437,7 +437,7 @@ uint8_t nrf905_irq_handler(nrf905_handle_t *handle)
             }
             if (handle->receive_callback != NULL)                                                  /* if receive callback */
             {
-                handle->receive_callback(NRF905_STATUS_RX_DONE, (uint8_t *)buf, l);                /* run the receive callback */
+                handle->receive_callback(NRF905_STATUS_RX_DONE, (uint8_t *)buf, l);                /* run receive callback */
             }
         }
     }
@@ -445,7 +445,7 @@ uint8_t nrf905_irq_handler(nrf905_handle_t *handle)
     {
         if (handle->receive_callback != NULL)                                                      /* if receive callback */
         {
-            handle->receive_callback(NRF905_STATUS_AM, NULL, 0);                                   /* run the receive callback */
+            handle->receive_callback(NRF905_STATUS_AM, NULL, 0);                                   /* run receive callback */
         }
     }
     if (handle->ce_gpio_write(1) != 0)                                                             /* enable the chip */
@@ -628,7 +628,7 @@ uint8_t nrf905_sent(nrf905_handle_t *handle, uint8_t *buf, uint8_t len)
     while ((timeout != 0) && (handle->finished == 0))                                            /* wait time */
     {
         handle->delay_ms(1);                                                                     /* delay 1 ms */
-        timeout--;                                                                               /* tiemout-- */
+        timeout--;                                                                               /* timeout-- */
     }
     if (handle->ce_gpio_write(0) != 0)                                                           /* disable the chip */
     {
@@ -1342,7 +1342,7 @@ uint8_t nrf905_set_rx_mode(nrf905_handle_t *handle, nrf905_rx_mode_t mode)
 /**
  * @brief      get the rx mode
  * @param[in]  *handle points to an nrf905 handle structure
- * @param[out] *mode poits to a rx mode buffer
+ * @param[out] *mode points to a rx mode buffer
  * @return     status code
  *             - 0 success
  *             - 1 get rx mode failed
@@ -1426,7 +1426,7 @@ uint8_t nrf905_get_auto_retransmit(nrf905_handle_t *handle, nrf905_bool_t *enabl
     }
 
     prev = handle->conf[NRF905_REG_CONF1];                /* get the conf1 */
-    *enable = (nrf905_bool_t)((prev >> 5) & 0x01);        /* get the enable */
+    *enable = (nrf905_bool_t)((prev >> 5) & 0x01);        /* get enable */
     
     return 0;                                             /* success return 0 */
 }
@@ -2119,7 +2119,7 @@ uint8_t nrf905_info(nrf905_info_t *info)
     info->max_current_ma = MAX_CURRENT;                             /* set maximum current */
     info->temperature_max = TEMPERATURE_MAX;                        /* set minimal temperature */
     info->temperature_min = TEMPERATURE_MIN;                        /* set maximum temperature */
-    info->driver_version = DRIVER_VERSION;                          /* set driver verison */
+    info->driver_version = DRIVER_VERSION;                          /* set driver version */
     
     return 0;                                                       /* success return 0 */
 }

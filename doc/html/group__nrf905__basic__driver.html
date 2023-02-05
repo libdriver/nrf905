@@ -127,8 +127,8 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:ga6974150215273e9146f18393ccb3b3ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">nrf905 pll mode enumeration definition  <a href="group__nrf905__basic__driver.html#ga6974150215273e9146f18393ccb3b3ea">More...</a><br /></td></tr>
 <tr class="separator:ga6974150215273e9146f18393ccb3b3ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3bc0bae9c1cce5a1071b2ebe78298e71"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nrf905__basic__driver.html#ga3bc0bae9c1cce5a1071b2ebe78298e71">nrf905_output_power_t</a> { <a class="el" href="group__nrf905__basic__driver.html#gga3bc0bae9c1cce5a1071b2ebe78298e71a2978cfc76f3c7e6d9ac0a2c96ad1e68e">NRF905_OUTPUT_POWER_NEGTIVE_10_DBM</a> = 0x00
-, <a class="el" href="group__nrf905__basic__driver.html#gga3bc0bae9c1cce5a1071b2ebe78298e71af1ec07faebfd40329e1115deeac717d6">NRF905_OUTPUT_POWER_NEGTIVE_2_DBM</a> = 0x01
+<tr class="memitem:ga3bc0bae9c1cce5a1071b2ebe78298e71"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nrf905__basic__driver.html#ga3bc0bae9c1cce5a1071b2ebe78298e71">nrf905_output_power_t</a> { <a class="el" href="group__nrf905__basic__driver.html#gga3bc0bae9c1cce5a1071b2ebe78298e71ae639076ac26b38f74a259f867f873082">NRF905_OUTPUT_POWER_NEGATIVE_10_DBM</a> = 0x00
+, <a class="el" href="group__nrf905__basic__driver.html#gga3bc0bae9c1cce5a1071b2ebe78298e71a41ad9335cd5e93d51e992d773e8cdc93">NRF905_OUTPUT_POWER_NEGATIVE_2_DBM</a> = 0x01
 , <a class="el" href="group__nrf905__basic__driver.html#gga3bc0bae9c1cce5a1071b2ebe78298e71a075075ddb2f87ef07004a2c50f54875d">NRF905_OUTPUT_POWER_6_DBM</a> = 0x02
 , <a class="el" href="group__nrf905__basic__driver.html#gga3bc0bae9c1cce5a1071b2ebe78298e71a7bb231a36054c7bab66142b6ad16c0c2">NRF905_OUTPUT_POWER_10_DBM</a> = 0x03
  }</td></tr>
@@ -536,9 +536,9 @@ Functions</h2></td></tr>
 
 <p>nrf905 output power enumeration definition </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga3bc0bae9c1cce5a1071b2ebe78298e71a2978cfc76f3c7e6d9ac0a2c96ad1e68e"></a>NRF905_OUTPUT_POWER_NEGTIVE_10_DBM&#160;</td><td class="fielddoc"><p>-10dBm </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga3bc0bae9c1cce5a1071b2ebe78298e71ae639076ac26b38f74a259f867f873082"></a>NRF905_OUTPUT_POWER_NEGATIVE_10_DBM&#160;</td><td class="fielddoc"><p>-10dBm </p>
 </td></tr>
-<tr><td class="fieldname"><a id="gga3bc0bae9c1cce5a1071b2ebe78298e71af1ec07faebfd40329e1115deeac717d6"></a>NRF905_OUTPUT_POWER_NEGTIVE_2_DBM&#160;</td><td class="fielddoc"><p>-2dBm </p>
+<tr><td class="fieldname"><a id="gga3bc0bae9c1cce5a1071b2ebe78298e71a41ad9335cd5e93d51e992d773e8cdc93"></a>NRF905_OUTPUT_POWER_NEGATIVE_2_DBM&#160;</td><td class="fielddoc"><p>-2dBm </p>
 </td></tr>
 <tr><td class="fieldname"><a id="gga3bc0bae9c1cce5a1071b2ebe78298e71a075075ddb2f87ef07004a2c50f54875d"></a>NRF905_OUTPUT_POWER_6_DBM&#160;</td><td class="fielddoc"><p>+6dBm </p>
 </td></tr>
@@ -1380,7 +1380,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to an nrf905 handle structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*mode</td><td>poits to a rx mode buffer </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*mode</td><td>points to a rx mode buffer </td></tr>
   </table>
   </dd>
 </dl>

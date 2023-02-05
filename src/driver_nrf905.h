@@ -79,10 +79,10 @@ typedef enum
  */
 typedef enum
 {
-    NRF905_OUTPUT_POWER_NEGTIVE_10_DBM = 0x00,        /**< -10dBm */
-    NRF905_OUTPUT_POWER_NEGTIVE_2_DBM  = 0x01,        /**< -2dBm */
-    NRF905_OUTPUT_POWER_6_DBM          = 0x02,        /**< +6dBm */
-    NRF905_OUTPUT_POWER_10_DBM         = 0x03,        /**< +10dBm */
+    NRF905_OUTPUT_POWER_NEGATIVE_10_DBM = 0x00,        /**< -10dBm */
+    NRF905_OUTPUT_POWER_NEGATIVE_2_DBM  = 0x01,        /**< -2dBm */
+    NRF905_OUTPUT_POWER_6_DBM          = 0x02,         /**< +6dBm */
+    NRF905_OUTPUT_POWER_10_DBM         = 0x03,         /**< +10dBm */
 } nrf905_output_power_t;
 
 /**
@@ -735,7 +735,7 @@ uint8_t nrf905_set_rx_mode(nrf905_handle_t *handle, nrf905_rx_mode_t mode);
 /**
  * @brief      get the rx mode
  * @param[in]  *handle points to an nrf905 handle structure
- * @param[out] *mode poits to a rx mode buffer
+ * @param[out] *mode points to a rx mode buffer
  * @return     status code
  *             - 0 success
  *             - 1 get rx mode failed

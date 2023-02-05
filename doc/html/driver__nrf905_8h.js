@@ -50,8 +50,8 @@ var driver__nrf905_8h =
       [ "NRF905_OUTPUT_CLOCK_FREQUENCY_500KHZ", "group__nrf905__basic__driver.html#gga0fb33b644bfc8f413b0f3487575c3eebadf448a52319515ed8680d4ce59605339", null ]
     ] ],
     [ "nrf905_output_power_t", "group__nrf905__basic__driver.html#ga3bc0bae9c1cce5a1071b2ebe78298e71", [
-      [ "NRF905_OUTPUT_POWER_NEGTIVE_10_DBM", "group__nrf905__basic__driver.html#gga3bc0bae9c1cce5a1071b2ebe78298e71a2978cfc76f3c7e6d9ac0a2c96ad1e68e", null ],
-      [ "NRF905_OUTPUT_POWER_NEGTIVE_2_DBM", "group__nrf905__basic__driver.html#gga3bc0bae9c1cce5a1071b2ebe78298e71af1ec07faebfd40329e1115deeac717d6", null ],
+      [ "NRF905_OUTPUT_POWER_NEGATIVE_10_DBM", "group__nrf905__basic__driver.html#gga3bc0bae9c1cce5a1071b2ebe78298e71ae639076ac26b38f74a259f867f873082", null ],
+      [ "NRF905_OUTPUT_POWER_NEGATIVE_2_DBM", "group__nrf905__basic__driver.html#gga3bc0bae9c1cce5a1071b2ebe78298e71a41ad9335cd5e93d51e992d773e8cdc93", null ],
       [ "NRF905_OUTPUT_POWER_6_DBM", "group__nrf905__basic__driver.html#gga3bc0bae9c1cce5a1071b2ebe78298e71a075075ddb2f87ef07004a2c50f54875d", null ],
       [ "NRF905_OUTPUT_POWER_10_DBM", "group__nrf905__basic__driver.html#gga3bc0bae9c1cce5a1071b2ebe78298e71a7bb231a36054c7bab66142b6ad16c0c2", null ]
     ] ],
