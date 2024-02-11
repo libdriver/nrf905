@@ -49,6 +49,8 @@ LibDriver NRF905是LibDriver推出的NRF905全功能驅動程序，提供無線�
 
 ### 使用
 
+您可以參考/example目錄下的程式設計範例完成適合您的驅動，如果您想要使用默認的程式設計範例，以下是它們的使用方法。
+
 #### example basic sent
 
 ```C
