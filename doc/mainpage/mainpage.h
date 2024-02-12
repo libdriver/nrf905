@@ -1,6 +1,6 @@
 /**
  * @mainpage  LibDriver NRF905
- * @brief     libdriver nrf905 is a full function driver of nrf905 and it can run in both MCU and Linux platform.
+ * @brief     LibDriver NRF905 is a full function driver of NRF905 and it can run in both MCU and Linux platform.
  * @version   1.0.0
  * @author    Shifeng Li
  *
