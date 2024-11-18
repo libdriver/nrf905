@@ -17,7 +17,7 @@ LibDriver NRF905 is the full function driver of NRF905 launched by LibDriver.It 
   - [Instruction](#Instruction)
   - [Install](#Install)
   - [Usage](#Usage)
-    - [example basic sent](#example-basic-sent)
+    - [example basic send](#example-basic-send)
     - [example basic receive](#example-basic-receive)
   - [Document](#Document)
   - [Contributing](#Contributing)
@@ -52,7 +52,7 @@ Add the /src directory, the interface driver for your platform, and your own dri
 
 You can refer to the examples in the /example directory to complete your own driver. If you want to use the default programming examples, here's how to use them.
 
-#### example basic sent
+#### example basic send
 
 ```C
 #include "driver_nrf905_basic.h"
@@ -121,7 +121,7 @@ if (res != 0)
 
 ...
 
-if (nrf905_basic_sent((uint8_t *)addr, (uint8_t *)data, (uint8_t)strlen(data)) != 0)
+if (nrf905_basic_send((uint8_t *)addr, (uint8_t *)data, (uint8_t)strlen(data)) != 0)
 {
     (void)nrf905_basic_deinit();
     (void)gpio_interrupt_deinit();

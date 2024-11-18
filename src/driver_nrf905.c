@@ -563,20 +563,20 @@ uint8_t nrf905_set_mode(nrf905_handle_t *handle, nrf905_mode_t mode)
 }
 
 /**
- * @brief     sent data
+ * @brief     send data
  * @param[in] *handle points to an nrf905 handle structure
  * @param[in] *buf points to a data buffer
  * @param[in] len is the buffer length
  * @return    status code
  *            - 0 success
- *            - 1 sent failed
+ *            - 1 send failed
  *            - 2 handle is NULL
  *            - 3 handle is not initialized
  *            - 4 len is over conf
- *            - 5 sent timeout
+ *            - 5 send timeout
  * @note      none
  */
-uint8_t nrf905_sent(nrf905_handle_t *handle, uint8_t *buf, uint8_t len)
+uint8_t nrf905_send(nrf905_handle_t *handle, uint8_t *buf, uint8_t len)
 {
     uint8_t res;
     uint32_t timeout;
@@ -638,7 +638,7 @@ uint8_t nrf905_sent(nrf905_handle_t *handle, uint8_t *buf, uint8_t len)
     }
     if (timeout == 0)                                                                            /* check timeout */
     {
-        handle->debug_print("nrf905: sent timeout.\n");                                          /* sent timeout failed */
+        handle->debug_print("nrf905: send timeout.\n");                                          /* send timeout failed */
        
         return 5;                                                                                /* return error */
     }
@@ -648,7 +648,7 @@ uint8_t nrf905_sent(nrf905_handle_t *handle, uint8_t *buf, uint8_t len)
     }
     else
     {
-        handle->debug_print("nrf905: sent failed.\n");                                           /* sent failed */
+        handle->debug_print("nrf905: send failed.\n");                                           /* send failed */
        
         return 1;                                                                                /* return error */
     }

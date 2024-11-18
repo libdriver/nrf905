@@ -8,7 +8,7 @@ SPI Pin: SCLK/MOSI/MISO/CS GPIO11/GPIO10/GPIO9/GPIO8.
 
 GPIO Pin: CE/TX_EN/PWR_UP GPIO22/GPIO27/GPIO5.
 
-INT Pin: INT GPIO17.
+INT(DR) Pin: INT GPIO17.
 
 ### 2. Install
 
@@ -102,10 +102,10 @@ find_package(nrf905 REQUIRED)
    nrf905 (-t reg | --test=reg)
    ```
 
-5. Run nrf905 sent test.
+5. Run nrf905 send test.
 
    ```shell
-   nrf905 (-t sent | --test=sent)
+   nrf905 (-t send | --test=send)
    ```
 
 6. Run nrf905 receive test.
@@ -114,10 +114,10 @@ find_package(nrf905 REQUIRED)
    nrf905 (-t receive | --test=receive)
    ```
 
-7. Run nrf905 sent function, data is the send data and it's length must be less 32.
+7. Run nrf905 send function, data is the send data and it's length must be less 32.
 
    ```shell
-   nrf905 (-e sent | --example=sent) [--data=<str>]
+   nrf905 (-e send | --example=send) [--data=<str>]
    ```
 
 8. Run nrf905 receive function, timeout is the timeout time.
@@ -269,7 +269,7 @@ nrf905: finish register test.
 ```
 
 ```shell
-./nrf905 -t sent  
+./nrf905 -t send  
 
 nrf905: chip is Nordic nRF905.
 nrf905: manufacturer is Nordic.
@@ -280,10 +280,10 @@ nrf905: max supply voltage is 3.6V.
 nrf905: max current is 30.00mA.
 nrf905: max temperature is 85.0C.
 nrf905: min temperature is -40.0C.
-nrf905: start sent test.
+nrf905: start send test.
 nrf905: tx done.
-nrf905: sent successful.
-nrf905: finish sent test.
+nrf905: send successful.
+nrf905: finish send test.
 ```
 
 ```shell
@@ -306,9 +306,9 @@ nrf905: finish receive test.
 ```
 
 ```shell
-./nrf905 -e sent --data=libdriver--nrf905-nrf905-nrf905
+./nrf905 -e send --data=libdriver--nrf905-nrf905-nrf905
 
-nrf905: sent libdriver--nrf905-nrf905-nrf905.
+nrf905: send libdriver--nrf905-nrf905-nrf905.
 nrf905: tx done.
 ```
 
@@ -330,19 +330,19 @@ Usage:
   nrf905 (-h | --help)
   nrf905 (-p | --port)
   nrf905 (-t reg | --test=reg)
-  nrf905 (-t sent | --test=sent)
+  nrf905 (-t send | --test=send)
   nrf905 (-t receive | --test=receive)
-  nrf905 (-e sent | --example=sent) [--data=<str>]
+  nrf905 (-e send | --example=send) [--data=<str>]
   nrf905 (-e receive | --example=receive) [--timeout=<time>]
 
 Options:
       --data=<str>                   Set the send data.([default: LibDriver])
-  -e <sent | receive>, --example=<sent | receive>
+  -e <send | receive>, --example=<send | receive>
                                      Run the driver example.
   -h, --help                         Show the help.
   -i, --information                  Show the chip information.
   -p, --port                         Display the pin connections of the current board.
-  -t <reg | sent | receive>, --test=<reg | sent | receive>
+  -t <reg | send | receive>, --test=<reg | send | receive>
                                      Run the driver test.
       --timeout=<time>               Set the timeout in ms.([default: 1000])
 ```

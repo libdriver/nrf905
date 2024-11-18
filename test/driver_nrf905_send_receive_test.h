@@ -21,8 +21,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE. 
  *
- * @file      driver_nrf905_sent_receive_test.h
- * @brief     driver nrf905 sent receive test header file
+ * @file      driver_nrf905_send_receive_test.h
+ * @brief     driver nrf905 send receive test header file
  * @version   1.0.0
  * @author    Shifeng Li
  * @date      2022-03-31
@@ -34,8 +34,8 @@
  * </table>
  */
 
-#ifndef DRIVER_NRF905_SENT_RECEIVE_TEST_H
-#define DRIVER_NRF905_SENT_RECEIVE_TEST_H
+#ifndef DRIVER_NRF905_SEND_RECEIVE_TEST_H
+#define DRIVER_NRF905_SEND_RECEIVE_TEST_H
 
 #include "driver_nrf905_interface.h"
 
@@ -58,13 +58,13 @@ extern "C"{
 uint8_t nrf905_interrupt_test_irq_handler(void);
 
 /**
- * @brief  sent test
+ * @brief  send test
  * @return status code
  *         - 0 success
  *         - 1 test failed
  * @note   none
  */
-uint8_t nrf905_sent_test(void);
+uint8_t nrf905_send_test(void);
 
 /**
  * @brief  receive test

@@ -17,7 +17,7 @@ LibDriver NRF905 ist der Treiber mit vollem Funktionsumfang von NRF905, der von 
   - [Anweisung](#Anweisung)
   - [Installieren](#Installieren)
   - [Nutzung](#Nutzung)
-    - [example basic sent](#example-basic-sent)
+    - [example basic send](#example-basic-send)
     - [example basic receive](#example-basic-receive)
   - [Dokument](#Dokument)
   - [Beitrag](#Beitrag)
@@ -52,7 +52,7 @@ Fügen Sie das Verzeichnis /src, den Schnittstellentreiber für Ihre Plattform u
 
 Sie können auf die Beispiele im Verzeichnis /example zurückgreifen, um Ihren eigenen Treiber zu vervollständigen. Wenn Sie die Standardprogrammierbeispiele verwenden möchten, erfahren Sie hier, wie Sie diese verwenden.
 
-#### example basic sent
+#### example basic send
 
 ```C
 #include "driver_nrf905_basic.h"
@@ -121,7 +121,7 @@ if (res != 0)
 
 ...
 
-if (nrf905_basic_sent((uint8_t *)addr, (uint8_t *)data, (uint8_t)strlen(data)) != 0)
+if (nrf905_basic_send((uint8_t *)addr, (uint8_t *)data, (uint8_t)strlen(data)) != 0)
 {
     (void)nrf905_basic_deinit();
     (void)gpio_interrupt_deinit();

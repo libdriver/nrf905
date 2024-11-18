@@ -54,7 +54,7 @@ var driver__nrf905_8c =
     [ "nrf905_init", "group__nrf905__basic__driver.html#ga1b1c244a6a33fa58a89ef5eb73799564", null ],
     [ "nrf905_irq_handler", "group__nrf905__basic__driver.html#gabdb5516051cd8ed79f37959501abb4ee", null ],
     [ "nrf905_read_conf", "group__nrf905__basic__driver.html#ga179205e9f7136518ffec7e9bd05d948e", null ],
-    [ "nrf905_sent", "group__nrf905__basic__driver.html#gaa7a963027cddb9d9d1f49e2d5b1c1f59", null ],
+    [ "nrf905_send", "group__nrf905__basic__driver.html#ga7c6d8fcaa64cea2cd2ca8b11eda93ffe", null ],
     [ "nrf905_set_auto_retransmit", "group__nrf905__basic__driver.html#gac33ebb8477bdd19138f7fbaa48747874", null ],
     [ "nrf905_set_crc", "group__nrf905__basic__driver.html#gae14096416fbb649535b64be148612907", null ],
     [ "nrf905_set_crc_mode", "group__nrf905__basic__driver.html#ga370949021c7142031aa5a2c252505060", null ],
