@@ -17,7 +17,7 @@ LibDriver NRF905는 LibDriver에서 출시한 NRF905의 전체 기능 드라이�
   - [설명](#설명)
   - [설치](#설치)
   - [사용](#사용)
-    - [example basic sent](#example-basic-sent)
+    - [example basic send](#example-basic-send)
     - [example basic receive](#example-basic-receive)
   - [문서](#문서)
   - [기고](#기고)
@@ -52,7 +52,7 @@ LibDriver NRF905는 LibDriver에서 출시한 NRF905의 전체 기능 드라이�
 
 /example 디렉터리의 예제를 참조하여 자신만의 드라이버를 완성할 수 있습니다. 기본 프로그래밍 예제를 사용하려는 경우 사용 방법은 다음과 같습니다.
 
-#### example basic sent
+#### example basic send
 
 ```C
 #include "driver_nrf905_basic.h"
@@ -121,7 +121,7 @@ if (res != 0)
 
 ...
 
-if (nrf905_basic_sent((uint8_t *)addr, (uint8_t *)data, (uint8_t)strlen(data)) != 0)
+if (nrf905_basic_send((uint8_t *)addr, (uint8_t *)data, (uint8_t)strlen(data)) != 0)
 {
     (void)nrf905_basic_deinit();
     (void)gpio_interrupt_deinit();

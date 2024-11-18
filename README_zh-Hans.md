@@ -17,7 +17,7 @@ LibDriver NRF905是LibDriver推出的NRF905全功能驱动程序，提供无线�
   - [说明](#说明)
   - [安装](#安装)
   - [使用](#使用)
-    - [example basic sent](#example-basic-sent)
+    - [example basic send](#example-basic-send)
     - [example basic receive](#example-basic-receive)
   - [文档](#文档)
   - [贡献](#贡献)
@@ -52,7 +52,7 @@ LibDriver NRF905是LibDriver推出的NRF905全功能驱动程序，提供无线�
 
 您可以参考/example目录下的编程范例完成适合您的驱动，如果您想要使用默认的编程范例，以下是它们的使用方法。
 
-#### example basic sent
+#### example basic send
 
 ```C
 #include "driver_nrf905_basic.h"
@@ -121,7 +121,7 @@ if (res != 0)
 
 ...
 
-if (nrf905_basic_sent((uint8_t *)addr, (uint8_t *)data, (uint8_t)strlen(data)) != 0)
+if (nrf905_basic_send((uint8_t *)addr, (uint8_t *)data, (uint8_t)strlen(data)) != 0)
 {
     (void)nrf905_basic_deinit();
     (void)gpio_interrupt_deinit();

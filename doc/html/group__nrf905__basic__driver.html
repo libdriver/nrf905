@@ -202,9 +202,9 @@ Functions</h2></td></tr>
 <tr class="memitem:gac80028b743f98fd28c5def18976171f9"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nrf905__basic__driver.html#gac80028b743f98fd28c5def18976171f9">nrf905_set_mode</a> (<a class="el" href="group__nrf905__basic__driver.html#gad41a86f0a7cce6c2daa6ceb3ce5fa23c">nrf905_handle_t</a> *handle, <a class="el" href="group__nrf905__basic__driver.html#ga4137d262ba87560a4472431eabb4cc98">nrf905_mode_t</a> mode)</td></tr>
 <tr class="memdesc:gac80028b743f98fd28c5def18976171f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the mode  <a href="group__nrf905__basic__driver.html#gac80028b743f98fd28c5def18976171f9">More...</a><br /></td></tr>
 <tr class="separator:gac80028b743f98fd28c5def18976171f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa7a963027cddb9d9d1f49e2d5b1c1f59"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nrf905__basic__driver.html#gaa7a963027cddb9d9d1f49e2d5b1c1f59">nrf905_sent</a> (<a class="el" href="group__nrf905__basic__driver.html#gad41a86f0a7cce6c2daa6ceb3ce5fa23c">nrf905_handle_t</a> *handle, uint8_t *buf, uint8_t len)</td></tr>
-<tr class="memdesc:gaa7a963027cddb9d9d1f49e2d5b1c1f59"><td class="mdescLeft">&#160;</td><td class="mdescRight">sent data  <a href="group__nrf905__basic__driver.html#gaa7a963027cddb9d9d1f49e2d5b1c1f59">More...</a><br /></td></tr>
-<tr class="separator:gaa7a963027cddb9d9d1f49e2d5b1c1f59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7c6d8fcaa64cea2cd2ca8b11eda93ffe"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nrf905__basic__driver.html#ga7c6d8fcaa64cea2cd2ca8b11eda93ffe">nrf905_send</a> (<a class="el" href="group__nrf905__basic__driver.html#gad41a86f0a7cce6c2daa6ceb3ce5fa23c">nrf905_handle_t</a> *handle, uint8_t *buf, uint8_t len)</td></tr>
+<tr class="memdesc:ga7c6d8fcaa64cea2cd2ca8b11eda93ffe"><td class="mdescLeft">&#160;</td><td class="mdescRight">send data  <a href="group__nrf905__basic__driver.html#ga7c6d8fcaa64cea2cd2ca8b11eda93ffe">More...</a><br /></td></tr>
+<tr class="separator:ga7c6d8fcaa64cea2cd2ca8b11eda93ffe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaaa8fa6099e3c6e6a04a076101e3ba7c4"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nrf905__basic__driver.html#gaaa8fa6099e3c6e6a04a076101e3ba7c4">nrf905_write_conf</a> (<a class="el" href="group__nrf905__basic__driver.html#gad41a86f0a7cce6c2daa6ceb3ce5fa23c">nrf905_handle_t</a> *handle)</td></tr>
 <tr class="memdesc:gaaa8fa6099e3c6e6a04a076101e3ba7c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">write the conf  <a href="group__nrf905__basic__driver.html#gaaa8fa6099e3c6e6a04a076101e3ba7c4">More...</a><br /></td></tr>
 <tr class="separator:gaaa8fa6099e3c6e6a04a076101e3ba7c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1906,14 +1906,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="gaa7a963027cddb9d9d1f49e2d5b1c1f59"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaa7a963027cddb9d9d1f49e2d5b1c1f59">&#9670;&nbsp;</a></span>nrf905_sent()</h2>
+<a id="ga7c6d8fcaa64cea2cd2ca8b11eda93ffe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7c6d8fcaa64cea2cd2ca8b11eda93ffe">&#9670;&nbsp;</a></span>nrf905_send()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t nrf905_sent </td>
+          <td class="memname">uint8_t nrf905_send </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="group__nrf905__basic__driver.html#gad41a86f0a7cce6c2daa6ceb3ce5fa23c">nrf905_handle_t</a> *&#160;</td>
           <td class="paramname"><em>handle</em>, </td>
@@ -1938,7 +1938,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>sent data </p>
+<p>send data </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to an nrf905 handle structure </td></tr>
@@ -1949,11 +1949,11 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>status code<ul>
 <li>0 success</li>
-<li>1 sent failed</li>
+<li>1 send failed</li>
 <li>2 handle is NULL</li>
 <li>3 handle is not initialized</li>
 <li>4 len is over conf</li>
-<li>5 sent timeout </li>
+<li>5 send timeout </li>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>

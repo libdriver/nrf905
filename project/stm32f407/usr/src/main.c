@@ -35,7 +35,7 @@
  */
 
 #include "driver_nrf905_register_test.h"
-#include "driver_nrf905_sent_receive_test.h"
+#include "driver_nrf905_send_receive_test.h"
 #include "driver_nrf905_basic.h"
 #include "shell.h"
 #include "clock.h"
@@ -270,7 +270,7 @@ uint8_t nrf905(uint8_t argc, char **argv)
             return 0;
         }
     }
-    else if (strcmp("t_sent", type) == 0)
+    else if (strcmp("t_send", type) == 0)
     {
         uint8_t res;
         
@@ -284,8 +284,8 @@ uint8_t nrf905(uint8_t argc, char **argv)
         /* set the gpio irq */
         g_gpio_irq = nrf905_interrupt_test_irq_handler;
         
-        /* run sent test */
-        res = nrf905_sent_test();
+        /* run send test */
+        res = nrf905_send_test();
         if (res != 0)
         {
             (void)gpio_interrupt_deinit();
@@ -330,7 +330,7 @@ uint8_t nrf905(uint8_t argc, char **argv)
         
         return 0;
     }
-    else if (strcmp("e_sent", type) == 0)
+    else if (strcmp("e_send", type) == 0)
     {
         uint8_t res;
         uint8_t addr[4] = NRF905_BASIC_DEFAULT_RX_ADDR;
@@ -356,10 +356,10 @@ uint8_t nrf905(uint8_t argc, char **argv)
         }
         
         /* output */
-        nrf905_interface_debug_print("nrf905: sent %s.\n", data);
+        nrf905_interface_debug_print("nrf905: send %s.\n", data);
         
-        /* sent */
-        if (nrf905_basic_sent((uint8_t *)addr, (uint8_t *)data, (uint8_t)strlen(data)) != 0)
+        /* send */
+        if (nrf905_basic_send((uint8_t *)addr, (uint8_t *)data, (uint8_t)strlen(data)) != 0)
         {
             (void)nrf905_basic_deinit();
             (void)gpio_interrupt_deinit();
@@ -433,19 +433,19 @@ uint8_t nrf905(uint8_t argc, char **argv)
         nrf905_interface_debug_print("  nrf905 (-h | --help)\n");
         nrf905_interface_debug_print("  nrf905 (-p | --port)\n");
         nrf905_interface_debug_print("  nrf905 (-t reg | --test=reg)\n");
-        nrf905_interface_debug_print("  nrf905 (-t sent | --test=sent)\n");
+        nrf905_interface_debug_print("  nrf905 (-t send | --test=send)\n");
         nrf905_interface_debug_print("  nrf905 (-t receive | --test=receive)\n");
-        nrf905_interface_debug_print("  nrf905 (-e sent | --example=sent) [--data=<str>]\n");
+        nrf905_interface_debug_print("  nrf905 (-e send | --example=send) [--data=<str>]\n");
         nrf905_interface_debug_print("  nrf905 (-e receive | --example=receive) [--timeout=<time>]\n");
         nrf905_interface_debug_print("\n");
         nrf905_interface_debug_print("Options:\n");
         nrf905_interface_debug_print("      --data=<str>                   Set the send data.([default: LibDriver])\n");
-        nrf905_interface_debug_print("  -e <sent | receive>, --example=<sent | receive>\n");
+        nrf905_interface_debug_print("  -e <send | receive>, --example=<send | receive>\n");
         nrf905_interface_debug_print("                                     Run the driver example.\n");
         nrf905_interface_debug_print("  -h, --help                         Show the help.\n");
         nrf905_interface_debug_print("  -i, --information                  Show the chip information.\n");
         nrf905_interface_debug_print("  -p, --port                         Display the pin connections of the current board.\n");
-        nrf905_interface_debug_print("  -t <reg | sent | receive>, --test=<reg | sent | receive>\n");
+        nrf905_interface_debug_print("  -t <reg | send | receive>, --test=<reg | send | receive>\n");
         nrf905_interface_debug_print("                                     Run the driver test.\n");
         nrf905_interface_debug_print("      --timeout=<time>               Set the timeout in ms.([default: 1000])\n");
 

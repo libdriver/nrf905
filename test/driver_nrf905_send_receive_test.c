@@ -21,8 +21,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE. 
  *
- * @file      driver_nrf905_sent_receive_test.c
- * @brief     driver nrf905 sent receive test source file
+ * @file      driver_nrf905_send_receive_test.c
+ * @brief     driver nrf905 send receive test source file
  * @version   1.0.0
  * @author    Shifeng Li
  * @date      2022-03-31
@@ -34,7 +34,7 @@
  * </table>
  */
 
-#include "driver_nrf905_sent_receive_test.h"
+#include "driver_nrf905_send_receive_test.h"
 
 static nrf905_handle_t gs_handle;        /**< nrf905 handle */
 static volatile uint8_t gs_rx_done;      /**< rx done */
@@ -105,13 +105,13 @@ static void a_callback(uint8_t type, uint8_t *buf, uint8_t len)
 }
 
 /**
- * @brief  sent test
+ * @brief  send test
  * @return status code
  *         - 0 success
  *         - 1 test failed
  * @note   none
  */
-uint8_t nrf905_sent_test(void)
+uint8_t nrf905_send_test(void)
 {
     uint8_t i;
     uint8_t res;
@@ -162,8 +162,8 @@ uint8_t nrf905_sent_test(void)
         nrf905_interface_debug_print("nrf905: min temperature is %0.1fC.\n", info.temperature_min);
     }
     
-    /* start sent test */
-    nrf905_interface_debug_print("nrf905: start sent test.\n");
+    /* start send test */
+    nrf905_interface_debug_print("nrf905: start send test.\n");
     
     /* init */
     res = nrf905_init(&gs_handle);
@@ -374,26 +374,26 @@ uint8_t nrf905_sent_test(void)
         return 1;
     }
     
-    /* sent data */
+    /* send data */
     for (i = 0; i < 32; i++)
     {
         buffer[i] = i;
     }
-    res = nrf905_sent(&gs_handle, buffer, 32);
+    res = nrf905_send(&gs_handle, buffer, 32);
     if (res != 0)
     {
-        nrf905_interface_debug_print("nrf905: sent failed.\n");
+        nrf905_interface_debug_print("nrf905: send failed.\n");
         (void)nrf905_deinit(&gs_handle);
         
         return 1;
     }
     else
     {
-        nrf905_interface_debug_print("nrf905: sent successful.\n");
+        nrf905_interface_debug_print("nrf905: send successful.\n");
     }
     
-    /* finish sent test */
-    nrf905_interface_debug_print("nrf905: finish sent test.\n");
+    /* finish send test */
+    nrf905_interface_debug_print("nrf905: finish send test.\n");
     (void)nrf905_deinit(&gs_handle);
     
     return 0;
