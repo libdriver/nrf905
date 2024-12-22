@@ -60,9 +60,9 @@ uint8_t nrf905_interrupt_test_irq_handler(void)
 
 /**
  * @brief     interface receive callback
- * @param[in] type is the receive callback type
- * @param[in] *buf points to a data buffer
- * @param[in] len is the buffer length
+ * @param[in] type receive callback type
+ * @param[in] *buf pointer to a data buffer
+ * @param[in] len buffer length
  * @note      none
  */
 static void a_callback(uint8_t type, uint8_t *buf, uint8_t len)

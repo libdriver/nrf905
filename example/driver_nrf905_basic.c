@@ -59,8 +59,8 @@ uint8_t nrf905_interrupt_irq_handler(void)
 
 /**
  * @brief     basic example init
- * @param[in] mode is the chip working mode
- * @param[in] *callback points to a callback function
+ * @param[in] mode chip working mode
+ * @param[in] *callback pointer to a callback function
  * @return    status code
  *            - 0 success
  *            - 1 init failed
@@ -342,9 +342,9 @@ uint8_t nrf905_basic_deinit(void)
 
 /**
  * @brief     basic example send
- * @param[in] *addr points to a address buffer
- * @param[in] *buf points to a data buffer
- * @param[in] len is the buffer length
+ * @param[in] *addr pointer to a address buffer
+ * @param[in] *buf pointer to a data buffer
+ * @param[in] len buffer length
  * @return    status code
  *            - 0 success
  *            - 1 send failed
