@@ -63,7 +63,7 @@ void EXTI0_IRQHandler(void)
 
 /**
  * @brief     gpio exti callback
- * @param[in] pin is the gpio pin
+ * @param[in] pin gpio pin
  * @note      none
  */
 void HAL_GPIO_EXTI_Callback(uint16_t pin)
@@ -79,9 +79,9 @@ void HAL_GPIO_EXTI_Callback(uint16_t pin)
 
 /**
  * @brief     interface receive callback
- * @param[in] type is the receive callback type
- * @param[in] *buf points to a data buffer
- * @param[in] len is the buffer length
+ * @param[in] type receive callback type
+ * @param[in] *buf pointer to a data buffer
+ * @param[in] len buffer length
  * @note      none
  */
 static void a_callback(uint8_t type, uint8_t *buf, uint8_t len)
@@ -124,8 +124,8 @@ static void a_callback(uint8_t type, uint8_t *buf, uint8_t len)
 
 /**
  * @brief     nrf905 full function
- * @param[in] argc is arg numbers
- * @param[in] **argv is the arg address
+ * @param[in] argc arg numbers
+ * @param[in] **argv arg address
  * @return    status code
  *            - 0 success
  *            - 1 run failed
