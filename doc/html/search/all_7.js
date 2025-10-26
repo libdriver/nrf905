@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['pwr_5fup_5fgpio_5fdeinit_207',['pwr_up_gpio_deinit',['../structnrf905__handle__s.html#a67d1cf1e6b5a338808f0694bcd3ba42c',1,'nrf905_handle_s']]],
-  ['pwr_5fup_5fgpio_5finit_208',['pwr_up_gpio_init',['../structnrf905__handle__s.html#ab29f8c48b16b580d1be22e508ec8ff05',1,'nrf905_handle_s']]],
-  ['pwr_5fup_5fgpio_5fwrite_209',['pwr_up_gpio_write',['../structnrf905__handle__s.html#ab5f93ad41fc6a05fdcff61d19b744314',1,'nrf905_handle_s']]]
+  ['mainpage_2eh_0',['mainpage.h',['../mainpage_8h.html',1,'']]],
+  ['manufacturer_5fname_1',['MANUFACTURER_NAME',['../driver__nrf905_8c.html#aaa2b8f5b105c3019df0cb346f472e803',1,'driver_nrf905.c']]],
+  ['manufacturer_5fname_2',['manufacturer_name',['../structnrf905__info__s.html#ad25285dbf810c90f8eaf3fcef6f2b2ea',1,'nrf905_info_s']]],
+  ['max_5fcurrent_3',['MAX_CURRENT',['../driver__nrf905_8c.html#a2989837a37d6d63b59c6dd541b785435',1,'driver_nrf905.c']]],
+  ['max_5fcurrent_5fma_4',['max_current_ma',['../structnrf905__info__s.html#a9db82802561bf22d799b03a345f1d1dc',1,'nrf905_info_s']]],
+  ['mode_5',['mode',['../structnrf905__handle__s.html#a37e90f5e3bd99fac2021fb3a326607d4',1,'nrf905_handle_s']]]
 ];
