@@ -10,7 +10,7 @@
 
 NRF905 is a single chip radio transceiver for the 433/868/915MHz ISM band. The transceiver consists of a fully integrated frequency synthesizer, receiver chain with demodulator, a power amplifier, a crystal oscillator and, a modulator. The ShockBurst™ feature automatically handles preamble and CRC. You can easily configure the nRF905 through the SPI. Current consumption is very low, in transmit only 9mA at an output power of -10dBm, and in receive mode 12.5mA. Built-in power down modes makes power saving easily realizable.NRF905 is used in wireless data communication,  alarm security system, home automation, remote control and so on.
 
-LibDriver NRF905 is a full-featured driver of NRF905 launched by LibDriver.It provides functions of wireless senting, wireless receiving, etc. LibDriver is MISRA compliant.
+LibDriver NRF905 is a full-featured driver for NRF905, launched by LibDriver.It provides wireless sending, wireless receiving and additional features. LibDriver is MISRA compliant.
 
 ### Table of Contents
 
