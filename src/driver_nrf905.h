@@ -81,8 +81,8 @@ typedef enum
 {
     NRF905_OUTPUT_POWER_NEGATIVE_10_DBM = 0x00,        /**< -10dBm */
     NRF905_OUTPUT_POWER_NEGATIVE_2_DBM  = 0x01,        /**< -2dBm */
-    NRF905_OUTPUT_POWER_6_DBM          = 0x02,         /**< +6dBm */
-    NRF905_OUTPUT_POWER_10_DBM         = 0x03,         /**< +10dBm */
+    NRF905_OUTPUT_POWER_6_DBM           = 0x02,        /**< +6dBm */
+    NRF905_OUTPUT_POWER_10_DBM          = 0x03,        /**< +10dBm */
 } nrf905_output_power_t;
 
 /**
