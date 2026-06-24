@@ -3,7 +3,7 @@ var driver__nrf905_8h =
     [ "DRIVER_NRF905_LINK_CE_GPIO_DEINIT", "group__nrf905__link__driver.html#ga77466f79d0db65bef10df35cf80203de", null ],
     [ "DRIVER_NRF905_LINK_CE_GPIO_INIT", "group__nrf905__link__driver.html#gaf66a450236ef1a6e3799519d1a3c3824", null ],
     [ "DRIVER_NRF905_LINK_CE_GPIO_WRITE", "group__nrf905__link__driver.html#gab3a688df2e6f9a547935b719612d0bd2", null ],
-    [ "DRIVER_NRF905_LINK_DEBUG_PEINT", "group__nrf905__link__driver.html#gaa9dde1aca01467fdc9cfe464810ed264", null ],
+    [ "DRIVER_NRF905_LINK_DEBUG_PRINT", "group__nrf905__link__driver.html#ga2169ea78f5183f136db97e3258c5d931", null ],
     [ "DRIVER_NRF905_LINK_DELAY_MS", "group__nrf905__link__driver.html#ga466a2ab1f99eb20fdb6ff065eabeab36", null ],
     [ "DRIVER_NRF905_LINK_INIT", "group__nrf905__link__driver.html#gab991dc07f1f7beebf9e90fd80eb282d1", null ],
     [ "DRIVER_NRF905_LINK_PWR_UP_GPIO_DEINIT", "group__nrf905__link__driver.html#ga02d4c379e12fa0f8236d02ec7304851b", null ],

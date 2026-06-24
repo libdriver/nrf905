@@ -137,7 +137,7 @@ uint8_t nrf905_send_test(void)
     DRIVER_NRF905_LINK_PWR_UP_GPIO_DEINIT(&gs_handle, nrf905_interface_pwr_up_gpio_deinit);
     DRIVER_NRF905_LINK_PWR_UP_GPIO_WRITE(&gs_handle, nrf905_interface_pwr_up_gpio_write);
     DRIVER_NRF905_LINK_DELAY_MS(&gs_handle, nrf905_interface_delay_ms);
-    DRIVER_NRF905_LINK_DEBUG_PEINT(&gs_handle, nrf905_interface_debug_print);
+    DRIVER_NRF905_LINK_DEBUG_PRINT(&gs_handle, nrf905_interface_debug_print);
     DRIVER_NRF905_LINK_RECEIVE_CALLBACK(&gs_handle, nrf905_interface_receive_callback);
     
     /* get information */
@@ -431,7 +431,7 @@ uint8_t nrf905_receive_test(void)
     DRIVER_NRF905_LINK_PWR_UP_GPIO_DEINIT(&gs_handle, nrf905_interface_pwr_up_gpio_deinit);
     DRIVER_NRF905_LINK_PWR_UP_GPIO_WRITE(&gs_handle, nrf905_interface_pwr_up_gpio_write);
     DRIVER_NRF905_LINK_DELAY_MS(&gs_handle, nrf905_interface_delay_ms);
-    DRIVER_NRF905_LINK_DEBUG_PEINT(&gs_handle, nrf905_interface_debug_print);
+    DRIVER_NRF905_LINK_DEBUG_PRINT(&gs_handle, nrf905_interface_debug_print);
     DRIVER_NRF905_LINK_RECEIVE_CALLBACK(&gs_handle, a_callback);
     
     /* get information */

@@ -12,7 +12,7 @@ var searchData=
   ['driver_5fnrf905_5flink_5fce_5fgpio_5fdeinit_9',['DRIVER_NRF905_LINK_CE_GPIO_DEINIT',['../group__nrf905__link__driver.html#ga77466f79d0db65bef10df35cf80203de',1,'driver_nrf905.h']]],
   ['driver_5fnrf905_5flink_5fce_5fgpio_5finit_10',['DRIVER_NRF905_LINK_CE_GPIO_INIT',['../group__nrf905__link__driver.html#gaf66a450236ef1a6e3799519d1a3c3824',1,'driver_nrf905.h']]],
   ['driver_5fnrf905_5flink_5fce_5fgpio_5fwrite_11',['DRIVER_NRF905_LINK_CE_GPIO_WRITE',['../group__nrf905__link__driver.html#gab3a688df2e6f9a547935b719612d0bd2',1,'driver_nrf905.h']]],
-  ['driver_5fnrf905_5flink_5fdebug_5fpeint_12',['DRIVER_NRF905_LINK_DEBUG_PEINT',['../group__nrf905__link__driver.html#gaa9dde1aca01467fdc9cfe464810ed264',1,'driver_nrf905.h']]],
+  ['driver_5fnrf905_5flink_5fdebug_5fprint_12',['DRIVER_NRF905_LINK_DEBUG_PRINT',['../group__nrf905__link__driver.html#ga2169ea78f5183f136db97e3258c5d931',1,'driver_nrf905.h']]],
   ['driver_5fnrf905_5flink_5fdelay_5fms_13',['DRIVER_NRF905_LINK_DELAY_MS',['../group__nrf905__link__driver.html#ga466a2ab1f99eb20fdb6ff065eabeab36',1,'driver_nrf905.h']]],
   ['driver_5fnrf905_5flink_5finit_14',['DRIVER_NRF905_LINK_INIT',['../group__nrf905__link__driver.html#gab991dc07f1f7beebf9e90fd80eb282d1',1,'driver_nrf905.h']]],
   ['driver_5fnrf905_5flink_5fpwr_5fup_5fgpio_5fdeinit_15',['DRIVER_NRF905_LINK_PWR_UP_GPIO_DEINIT',['../group__nrf905__link__driver.html#ga02d4c379e12fa0f8236d02ec7304851b',1,'driver_nrf905.h']]],
