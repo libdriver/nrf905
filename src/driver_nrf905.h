@@ -343,7 +343,7 @@ typedef struct nrf905_info_s
  * @param[in] FUC pointer to a debug_print function address
  * @note      none
  */
-#define DRIVER_NRF905_LINK_DEBUG_PEINT(HANDLE, FUC)              (HANDLE)->debug_print = FUC
+#define DRIVER_NRF905_LINK_DEBUG_PRINT(HANDLE, FUC)              (HANDLE)->debug_print = FUC
 
 /**
  * @brief     link receive_callback function

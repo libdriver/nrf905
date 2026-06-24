@@ -488,6 +488,8 @@ uint8_t nrf905_set_power_up(nrf905_handle_t *handle, nrf905_bool_t enable)
     }
     else
     {
+        handle->delay_ms(5);                                          /* delay 5ms */
+        
         return 0;                                                     /* success return 0 */
     }
 }

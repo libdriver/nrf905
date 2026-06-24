@@ -89,7 +89,7 @@ uint8_t nrf905_basic_init(nrf905_mode_t mode, void (*callback)(uint8_t type, uin
     DRIVER_NRF905_LINK_PWR_UP_GPIO_DEINIT(&gs_handle, nrf905_interface_pwr_up_gpio_deinit);
     DRIVER_NRF905_LINK_PWR_UP_GPIO_WRITE(&gs_handle, nrf905_interface_pwr_up_gpio_write);
     DRIVER_NRF905_LINK_DELAY_MS(&gs_handle, nrf905_interface_delay_ms);
-    DRIVER_NRF905_LINK_DEBUG_PEINT(&gs_handle, nrf905_interface_debug_print);
+    DRIVER_NRF905_LINK_DEBUG_PRINT(&gs_handle, nrf905_interface_debug_print);
     DRIVER_NRF905_LINK_RECEIVE_CALLBACK(&gs_handle, callback);
     
     /* init */
