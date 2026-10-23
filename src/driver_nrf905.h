@@ -180,6 +180,8 @@ typedef struct nrf905_handle_s
     uint8_t conf[10];                                                         /**< conf buffer */
     uint8_t finished;                                                         /**< finished flag */
     uint8_t mode;                                                             /**< chip mode */
+    uint8_t tx_addr[4];                                                       /**< tx address shadow buffer */
+    uint8_t tx_addr_len;                                                      /**< tx address length in bytes */
 } nrf905_handle_t;
 
 /**

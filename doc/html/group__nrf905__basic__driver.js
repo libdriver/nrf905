@@ -19,6 +19,8 @@ var group__nrf905__basic__driver =
       [ "spi_read", "structnrf905__handle__s.html#a4355763dd3841598f34aea0b059031ce", null ],
       [ "spi_transmit", "structnrf905__handle__s.html#a850cd349ae0ace1e9b6c9ba22e9e2cab", null ],
       [ "spi_write", "structnrf905__handle__s.html#a53f6c43b3a975d2569e84643ad549413", null ],
+      [ "tx_addr", "structnrf905__handle__s.html#a86e23507074785b6e5836d584d327c36", null ],
+      [ "tx_addr_len", "structnrf905__handle__s.html#a22e9c511efd9bc7805877a29df52c233", null ],
       [ "tx_en_gpio_deinit", "structnrf905__handle__s.html#a608ebfdf5f3ad67721876c384bf7862b", null ],
       [ "tx_en_gpio_init", "structnrf905__handle__s.html#a5b0c9f30e79a33300a2a2d1df9809db8", null ],
       [ "tx_en_gpio_write", "structnrf905__handle__s.html#a9b35d5bf3d0a8b8c1fa1acf0c973e00f", null ]
