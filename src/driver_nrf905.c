@@ -303,6 +303,11 @@ uint8_t nrf905_init(nrf905_handle_t *handle)
     handle->conf[7] = 0xE7;                                                  /* set default conf */
     handle->conf[8] = 0xE7;                                                  /* set default conf */
     handle->conf[9] = 0xE7;                                                  /* set default conf */
+    handle->tx_addr[0] = 0xE7;                                               /* set default tx address */
+    handle->tx_addr[1] = 0xE7;                                               /* set default tx address */
+    handle->tx_addr[2] = 0xE7;                                               /* set default tx address */
+    handle->tx_addr[3] = 0xE7;                                               /* set default tx address */
+    handle->tx_addr_len = 4;                                                 /* set default tx address length */
     
     handle->inited = 1;                                                      /* flag finish initialization */
     
@@ -395,19 +400,12 @@ uint8_t nrf905_irq_handler(nrf905_handle_t *handle)
         return 3;                                                                                  /* return error */
     }
     
-    if (handle->ce_gpio_write(0) != 0)                                                             /* disable the chip */
-    {
-        handle->debug_print("nrf905: ce gpio write failed.\n");                                    /* ce gpio write failed */
-        
-        return 1;                                                                                  /* return error */
-    }
     status = 0;                                                                                    /* set 0 */
-    reg = 0xFF;                                                                                    /* set 0xFF */
+    reg = 0xFF;                                                                                    /* spi nop to read out the status */
     res = a_nrf905_spi_transmit(handle, &reg, (uint8_t *)&status, 1);                              /* read status */
     if (res != 0)                                                                                  /* check result */
     {
         handle->debug_print("nrf905: get status failed.\n");                                       /* get status failed */
-        (void)handle->ce_gpio_write(1);                                                            /* enable the chip */
        
         return 1;                                                                                  /* return error */
     }
@@ -426,12 +424,22 @@ uint8_t nrf905_irq_handler(nrf905_handle_t *handle)
             uint8_t buf[32];
             uint8_t l;
             
-            l = handle->conf[NRF905_REG_RX_PW] > 32 ? 32 : handle->conf[NRF905_REG_RX_PW];         /* get the read length */
+            if (handle->ce_gpio_write(0) != 0)                                                     /* enter standby before reading the fifo */
+            {
+                handle->debug_print("nrf905: ce gpio write failed.\n");                            /* ce gpio write failed */
+                
+                return 1;                                                                          /* return error */
+            }
+            l = handle->conf[NRF905_REG_RX_PW];                                                    /* get the read length */
+            if ((l == 0) || (l > 32))                                                              /* check the range */
+            {
+                l = 32;                                                                            /* use the maximum length */
+            }
             res = a_nrf905_spi_read(handle, NRF905_COMMAND_R_RX_PAYLOAD, (uint8_t *)buf, l);       /* read rx payload */
             if (res != 0)                                                                          /* check result */
             {
                 handle->debug_print("nrf905: get rx payload failed.\n");                           /* get rx payload failed */
-                (void)handle->ce_gpio_write(1);                                                    /* enable the chip */
+                (void)handle->ce_gpio_write(1);                                                    /* resume rx */
                 
                 return 1;                                                                          /* return error */
             }
@@ -439,20 +447,20 @@ uint8_t nrf905_irq_handler(nrf905_handle_t *handle)
             {
                 handle->receive_callback(NRF905_STATUS_RX_DONE, (uint8_t *)buf, l);                /* run receive callback */
             }
+            if (handle->ce_gpio_write(1) != 0)                                                     /* resume rx */
+            {
+                handle->debug_print("nrf905: ce gpio write failed.\n");                            /* ce gpio write failed */
+                
+                return 1;                                                                          /* return error */
+            }
         }
     }
-    if ((status & (1 << 7)) != 0)                                                                  /* if am */
+    else if ((status & (1 << 7)) != 0)                                                             /* only am, the packet is still being received */
     {
         if (handle->receive_callback != NULL)                                                      /* if receive callback */
         {
             handle->receive_callback(NRF905_STATUS_AM, NULL, 0);                                   /* run receive callback */
         }
-    }
-    if (handle->ce_gpio_write(1) != 0)                                                             /* enable the chip */
-    {
-        handle->debug_print("nrf905: ce gpio write failed.\n");                                    /* ce gpio write failed */
-        
-        return 1;                                                                                  /* return error */
     }
     
     return 0;                                                                                      /* success return 0 */
@@ -611,6 +619,17 @@ uint8_t nrf905_send(nrf905_handle_t *handle, uint8_t *buf, uint8_t len)
         return 1;                                                                                /* return error */
     }
     handle->delay_ms(1);                                                                         /* wait 1 ms */
+    if (handle->tx_addr_len >= 1)                                                                /* load the tx address */
+    {
+        res = a_nrf905_spi_write(handle, NRF905_COMMAND_W_TX_ADDRESS, handle->tx_addr,
+                                 handle->tx_addr_len);                                           /* write tx address */
+        if (res != 0)                                                                            /* check result */
+        {
+            handle->debug_print("nrf905: set tx address failed.\n");                             /* set tx address failed */
+           
+            return 1;                                                                            /* return error */
+        }
+    }
     res = a_nrf905_spi_write(handle, NRF905_COMMAND_W_TX_PAYLOAD, buf, len);                     /* write tx payload */
     if (res != 0)                                                                                /* check result */
     {
@@ -920,6 +939,8 @@ uint8_t nrf905_set_tx_address(nrf905_handle_t *handle, uint8_t *addr, uint8_t le
        
         return 1;                                                                   /* return error */
     }
+    memcpy(handle->tx_addr, addr, len);                                             /* update the tx address shadow */
+    handle->tx_addr_len = len;                                                      /* update the tx address length */
     
     return 0;                                                                       /* success return 0 */
 }
@@ -1011,6 +1032,14 @@ uint8_t nrf905_channel_config(nrf905_handle_t *handle, uint16_t freq, nrf905_pll
        
         return 1;                                                            /* return error */
     }
+    
+    handle->conf[NRF905_REG_CH_NO] = (uint8_t)(freq & 0xFF);                 /* set ch_no low byte */
+    handle->conf[NRF905_REG_CONF1] &= (uint8_t)(~(1 << 0));                  /* clear ch_no bit 8 */
+    handle->conf[NRF905_REG_CONF1] |= (uint8_t)(((freq >> 8) & 0x01) << 0);  /* set ch_no bit 8 */
+    handle->conf[NRF905_REG_CONF1] &= (uint8_t)(~(1 << 1));                  /* clear hfreq pll */
+    handle->conf[NRF905_REG_CONF1] |= (uint8_t)((mode & 0x01) << 1);         /* set hfreq pll */
+    handle->conf[NRF905_REG_CONF1] &= (uint8_t)(~(3 << 2));                  /* clear pa pwr */
+    handle->conf[NRF905_REG_CONF1] |= (uint8_t)((power & 0x03) << 2);        /* set pa pwr */
     
     return 0;                                                                /* success return 0 */
 }
